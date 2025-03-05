@@ -1,0 +1,25 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+export const projectApi = createApi({
+    reducerPath: 'projectApi',
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://jackkelley.up.railway.app' }),
+    tagTypes: ['Project'],
+    endpoints: (builder) => ({
+        getAllProjects: builder.query({
+            query: ()=> ({
+                url: '/api/projects',
+                method: 'GET'
+            }),
+            providesTags: ['Project']
+        }),
+        getLazyProjects: builder.query({
+            query: () => ({
+                url: '/api/projects',
+                method: 'GET'
+            }),
+            providesTags: ['Project']
+        })
+    })
+})
+
+export const { useGetAllProjectsQuery, useLazyGetAllProjectsQuery } = projectApi;
