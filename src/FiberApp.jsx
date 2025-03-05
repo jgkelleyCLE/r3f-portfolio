@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber'
 import React, { useMemo } from 'react'
 import Experience from './FiberComponents/Experience'
 import { Physics } from '@react-three/rapier'
-import { KeyboardControls, Stats } from '@react-three/drei'
+import { KeyboardControls, OrbitControls, Stats } from '@react-three/drei'
 import * as THREE from 'three'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 
@@ -13,7 +13,8 @@ export const Controls = {
     right: "right",
     jump: "jump",
     sprint: "sprint",
-    // duck: "duck",
+    duck: "duck",
+    attack: "attack"
   }
 
 const FiberApp = () => {
@@ -25,7 +26,8 @@ const FiberApp = () => {
         {name: Controls.right, keys: ["ArrowRight", "KeyD"]},
         {name: Controls.jump, keys: ["Space"]},
         {name: Controls.sprint, keys: ["ShiftLeft"]},
-        // {name: Controls.duck, keys: ["ControlLeft", "KeyC"]},
+        {name: Controls.duck, keys: ["ControlLeft", "KeyC"]},
+        {name: Controls.attack, keys: ["KeyF"]},
       ], [])
 
   return (
@@ -36,7 +38,12 @@ const FiberApp = () => {
             shadows
         >
             
+            {/* <OrbitControls />
             
+            <mesh>
+                <boxGeometry />
+                <meshBasicMaterial color="red" />
+            </mesh> */}
            
             {/* <Stats /> */}
 

@@ -32,9 +32,19 @@ export const characters = [
   },
   {
     id: 4,
+    name: "Mech Warrior",
+    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FMech.webp?alt=media&token=d3b00c0c-e79c-4e5d-8b5a-765b668384ed"
+  },
+  {
+    id: 5,
+    name: "Orc",
+    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FOrcWebP.webp?alt=media&token=dcb2dd10-2a96-4516-b5b3-d2dd1359278c"
+  },
+  {
+    id: 6,
     name: "Paladin",
     image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FPaladin.jpg?alt=media&token=489a74d8-3ca6-4b25-86f3-ea37b011251a"
-  }
+  },
   
 ]
 
@@ -63,23 +73,25 @@ const CharacterSelector = () => {
       <p className="hidden md:flex">Character</p>
     </div>
   </DialogTrigger>
-  <DialogContent>
+  <DialogContent className="[&>button]:text-accent">
     <DialogHeader>
       <DialogTitle className="text-primary text-xl md:text-2xl">Choose Your Character</DialogTitle>
       <DialogDescription className="hidden">Choose your character to play with</DialogDescription>
     </DialogHeader>
-    <CharacterGrid className="">
+    <div className="flex flex-col items-center">
+    <CharacterGrid className="mx-auto">
         
         {
           characters.map(item => (
-            <div key={item.id} className={` ${selectedCharacter === item.name ? "border-accent" : 'border-transparent'} flex flex-col items-center border-6 rounded-md `} onClick={() => characterHandler(item.name)}>
-              <img src={item.image} className="h-40 w-full md:h-60 md:w-48 object-cover rounded-t-md cursor-pointer hover:opacity-90 transition duration-300 " />
+            <div key={item.id} className={` ${selectedCharacter === item.name ? "border-accent" : 'border-transparent'} flex flex-col items-center border-6 rounded-md md:w-44 `} onClick={() => characterHandler(item.name)}>
+              <img src={item.image} className="h-40 w-full md:h-60 md:w-full object-cover rounded-t-md cursor-pointer hover:opacity-90 transition duration-300 " />
               <h1 className="text-xl text-primary">{item.name}</h1>
           </div>
           ))
         }
         
     </CharacterGrid>
+    </div>
   </DialogContent>
 </Dialog>
   )

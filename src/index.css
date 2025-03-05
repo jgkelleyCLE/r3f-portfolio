@@ -117,9 +117,9 @@
 
 /* styles.css */
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  --primary: #3d3d3d; /* Blue */
+  --background: #f5f5f5;
+  --foreground: #e3e3e3;
+  --primary: #3d3d3d; 
   --tertiary: #f9fafb; /* Light Gray */
   --accent: #00916c;
   --fallback: #1e1e1e;
@@ -127,8 +127,8 @@
 
 /* Dark theme */
 .jack-dark {
-  --background: #1a1a1a;
-  --foreground: #ffffff;
+  --background: #2d2d2d;
+  --foreground: #383838;
   --primary: #cacaca;
   --tertiary: #f9fafb; /* Light Gray */
   --accent: #6600c6;
@@ -138,11 +138,12 @@
 /* Brown theme */
 .jack-brown {
   --background: #2c1c14;
-  --foreground: #f5f5dc;
+  --foreground: #8e7058;
   --primary: #bb9679;
   --secondary: #f5f5dc;
   --tertiary: #f9fafb; /* Light Gray */
-  --accent: #1180ff;
+  /* --accent: #1180ff; */
+  --accent: #266395;
   --fallback: #000000;
 }
 
@@ -151,7 +152,7 @@
   /* --background: #360816; */
   --background: #1e070e;
   --foreground: #4b1c2a;
-  --primary: #b36f91;
+  --primary: #be88a3;
   --tertiary: #f9fafb; /* Light Gray */
   --accent: #00c8fa;
   --fallback: #000000;
@@ -159,7 +160,7 @@
 
 .jack-midnight {
   --background: #020018;
-  --foreground: #090050;
+  --foreground: #1e1086;
   --primary: #b1b1b1;
   --tertiary: #f9fafb; /* Light Gray */
   --fallback: #000000;

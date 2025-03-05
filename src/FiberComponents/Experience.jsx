@@ -10,6 +10,8 @@ import * as THREE from 'three'
 import { Perf } from 'r3f-perf'
 import RobotController from './Characters/Robot/RobotController'
 import PaladinController from './Characters/Paladin/PaladinController'
+import MechController from './Characters/Mech/MechController'
+import OrcController from './Characters/Orc/OrcController'
 
 const Experience = () => {
 
@@ -49,7 +51,7 @@ const Experience = () => {
         {/* <Perf /> */}
 
         {
-          selectedCharacter === "Mage" ? <MageController /> : selectedCharacter === "Skeleton" ?  <WarriorSkeletonController /> : selectedCharacter === "Robot" ? <RobotController /> : selectedCharacter === "Paladin" ? <PaladinController /> : null
+          selectedCharacter === "Mage" ? <MageController /> : selectedCharacter === "Skeleton" ?  <WarriorSkeletonController /> : selectedCharacter === "Robot" ? <RobotController /> : selectedCharacter === "Paladin" ? <PaladinController /> : selectedCharacter === "Mech Warrior" ? <MechController /> : selectedCharacter === "Orc" ? <OrcController /> :  null
         }
 
         <Map />

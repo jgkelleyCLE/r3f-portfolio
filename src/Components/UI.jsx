@@ -16,7 +16,7 @@ export const FlexColumn = tw.div`
 export const CharacterGrid = tw.div`
     grid
     grid-cols-2
-    md:grid-cols-4
+    md:grid-cols-3
     gap-2
 `
 
@@ -73,6 +73,7 @@ export const NavContainer = tw.div`
     items-center
     justify-between
     p-2
+    md:px-6
     rounded-md
     w-[95%]
     max-w-[1800px]

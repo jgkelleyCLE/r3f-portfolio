@@ -14,6 +14,7 @@ const initialState = {
     challengeComplete: challengeToken ? challengeToken : false
 }
 
+
 export const gateSlice = createSlice({
     name: 'gate',
     initialState,

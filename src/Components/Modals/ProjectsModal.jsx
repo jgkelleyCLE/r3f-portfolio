@@ -74,7 +74,7 @@ const ProjectsModal = () => {
         <DialogFooter className="bg-background">
           <FlexRow className="w-full bg-background">
             <DialogClose className="w-full"><Button className="bg-gray-400 p-2 hover:bg-gray-500 transition duration-300 rounded-md text-white hover font-bold cursor-pointer w-full text-lg">Close</Button></DialogClose>
-            <Button className="w-1/2 cursor-pointer text-lg" onClick={()=> navigate('/projects')}>View All Projects</Button>
+            <Button className="w-1/2 cursor-pointer hover:bg-primary/90 transition duration-300 bg-primary text-lg" onClick={()=> navigate('/projects')}>View All Projects</Button>
 
           </FlexRow>
         </DialogFooter>

@@ -21,7 +21,6 @@ function App() {
 function AppContent() {
   // Now useLocation will work here
   const location = useLocation();
-  console.log("Current path:", location.pathname);
   
   return (
     <>

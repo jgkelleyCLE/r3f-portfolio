@@ -2,7 +2,12 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const scoreApi = createApi({
     reducerPath: 'scoreApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://jackkelley.up.railway.app' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://jackkelley.up.railway.app',
+        prepareHeaders: (headers) => {
+            headers.set('Accept', 'application/json')
+            return headers
+          }
+     }),
     tagTypes: ['Score'],
     endpoints: (builder) => ({
         getScores: builder.query({

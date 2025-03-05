@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const portCharacter = localStorage.getItem("portCharacter");
-const fiberLowGravity = JSON.parse(localStorage.getItem("fiberLowGravity"));
+const fiberLowGravity = localStorage.getItem("fiberLowGravity");
+const theme = localStorage.getItem("jack-theme");
 
 const initialState = {
     gravity: 0.4,
     lowGravity: fiberLowGravity ? fiberLowGravity : false,
-    character: portCharacter ? portCharacter : "Mage"
+    character: portCharacter ? portCharacter : "Mage",
+    theme: theme ? theme : "jack-light"
 }
+
 
 const settingsSlice = createSlice({
     name: "settingsSlice",
@@ -23,9 +26,13 @@ const settingsSlice = createSlice({
         setCharacter: (state, action) => {
             state.character = action.payload;
             localStorage.setItem("portCharacter", action.payload);
+        },
+        setPortTheme: (state, action) => {
+            state.theme = action.payload;
+            localStorage.setItem("jack-theme", action.payload);
         }
     }
 })
 
-export const { setGravity, setCharacter, setLowGravity } = settingsSlice.actions;
+export const { setGravity, setCharacter, setLowGravity, setPortTheme } = settingsSlice.actions;
 export default settingsSlice.reducer;

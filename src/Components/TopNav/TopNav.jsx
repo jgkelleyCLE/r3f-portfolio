@@ -9,11 +9,15 @@ const TopNav = () => {
 
   return (
     <NavContainer>
+      {/* LEFT SIDE */}
         <Link to="/" className="flex items-start">
         <h1 className={`${pathname === "/" ? "underline underline-offset-4 decoration-accent decoration-2" : null} md:text-2xl text-lg font-extrabold`}>Jack Kelley</h1>
           <p className="text-accent ml-1">.dev</p>
         </Link>
-        <FlexRow>
+
+
+      {/* RIGHT SIDE */}
+        <FlexRow className="md:gap-4">
           <ThemeToggle />
             <Link className={`${pathname === "/about" ? "underline underline-offset-4 decoration-accent decoration-3" : "null"} md:text-xl text-primary `} to="/about">About</Link>
             <Link className={`${pathname === "/projects" ? "underline underline-offset-4 decoration-accent decoration-3" : "null"} md:text-xl text-primary `} to="/projects">Projects</Link>
