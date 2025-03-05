@@ -62,11 +62,6 @@ const AboutRoute = () => {
     }
   });
 
- 
-
-
-  
-
   return (
     <>
         
@@ -95,7 +90,7 @@ const AboutRoute = () => {
             <FixedDesertTileLarge position={[-5.9, 1.85, 75.85]} rotation={[0, 0, 0]} />
             <Text3D
                 castShadow
-                font="/public/fonts/helvetiker_regular.typeface.json" 
+                font="/fonts/helvetiker_regular.typeface.json" 
                 lineHeight={0.25} 
                 size={0.4} // Increased from 0.25 to 0.5
                 position={[8, 6, 72.15]} 
@@ -131,7 +126,10 @@ const AboutRoute = () => {
 
 
 
-            <Text3D font="/public/fonts/helvetiker_regular.typeface.json" fontSize={0.5} position={[-5, 2.5, 17]} rotation={[0, THREE.MathUtils.degToRad(120), 0]} color="black">
+            <Text3D 
+            font="/fonts/helvetiker_regular.typeface.json" 
+            fontSize={0.5} position={[-5, 2.5, 17]} 
+            rotation={[0, THREE.MathUtils.degToRad(120), 0]} color="black">
                 {"<"}&mdash; About Me
             </Text3D>
         

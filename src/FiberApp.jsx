@@ -1,10 +1,12 @@
 import { Canvas } from '@react-three/fiber'
 import React, { useMemo } from 'react'
 import Experience from './FiberComponents/Experience'
-import { Physics } from '@react-three/rapier'
-import { KeyboardControls, OrbitControls, Stats } from '@react-three/drei'
+import { Physics, RigidBody } from '@react-three/rapier'
+import { Grid, KeyboardControls, OrbitControls, Stats } from '@react-three/drei'
 import * as THREE from 'three'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
+import MageController from './FiberComponents/Characters/Mage/MageController'
+import { LargeDesertTile } from './FiberComponents/Models/DesertTileLarge'
 
 export const Controls = {
     forward: "forward",
@@ -38,13 +40,6 @@ const FiberApp = () => {
             shadows
         >
             
-            {/* <OrbitControls />
-            
-            <mesh>
-                <boxGeometry />
-                <meshBasicMaterial color="red" />
-            </mesh> */}
-           
             {/* <Stats /> */}
 
             <Physics 
@@ -53,6 +48,7 @@ const FiberApp = () => {
                 <Experience />
             </Physics>
 
+            
             <EffectComposer>
             <Bloom
                         intensity={0.8} // Lower intensity

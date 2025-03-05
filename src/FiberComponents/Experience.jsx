@@ -12,14 +12,13 @@ import RobotController from './Characters/Robot/RobotController'
 import PaladinController from './Characters/Paladin/PaladinController'
 import MechController from './Characters/Mech/MechController'
 import OrcController from './Characters/Orc/OrcController'
+import MainLanding from './Map/MainLanding'
 
 const Experience = () => {
 
   const selectedCharacter = useSelector(state => state.settings.character)
 
   const shadowCameraRef = useRef()
-
-  // useHelper(shadowCameraRef, THREE.CameraHelper, 5, 'red')
 
 
   return (
@@ -54,8 +53,8 @@ const Experience = () => {
           selectedCharacter === "Mage" ? <MageController /> : selectedCharacter === "Skeleton" ?  <WarriorSkeletonController /> : selectedCharacter === "Robot" ? <RobotController /> : selectedCharacter === "Paladin" ? <PaladinController /> : selectedCharacter === "Mech Warrior" ? <MechController /> : selectedCharacter === "Orc" ? <OrcController /> :  null
         }
 
-        <Map />
-
+        {/* MAP */}
+        <MainLanding />
 
         {/* //RESPAWN DETECTOR */}
         <RigidBody type="fixed" colliders={false} sensor name="space" position-y={-8} >

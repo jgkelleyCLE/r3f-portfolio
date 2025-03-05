@@ -12,6 +12,7 @@ import ProjectGateDetector from '../Models/ProjectGateDetector'
 import { YellowGate } from '../Models/YellowGate'
 import TeleportDetector from '../Models/TeleportDetector'
 
+
 const ProjectRoute = () => {
 
       const [show, setShow] = useState(false)
@@ -114,7 +115,7 @@ const ProjectRoute = () => {
         <FixedForestTileLarge position={[5.9, 9.85, -73.5]} rotation={[0, 0, 0]} />
         <FixedForestTileLarge position={[5.9, 9.85, -79.5]} rotation={[0, 0, 0]} />
         <Text3D 
-            font="/public/fonts/helvetiker_regular.typeface.json" 
+            font="/fonts/helvetiker_regular.typeface.json" 
             lineHeight={0.25} 
             size={0.4} // Increased from 0.25 to 0.5
             position={[8, 14, -77.5]} 
@@ -149,7 +150,7 @@ const ProjectRoute = () => {
 
         
 
-            <Text3D font="/public/fonts/helvetiker_regular.typeface.json" fontSize={0.5} position={[5, 2.5, -17]} rotation={[0, THREE.MathUtils.degToRad(-65), 0]} color="black">
+            <Text3D font="/fonts/helvetiker_regular.typeface.json" fontSize={0.5} position={[5, 2.5, -17]} rotation={[0, THREE.MathUtils.degToRad(-65), 0]} color="black">
             {'<'}&mdash; Projects
             </Text3D>
 

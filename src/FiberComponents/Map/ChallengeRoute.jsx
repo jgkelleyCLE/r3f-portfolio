@@ -127,9 +127,8 @@ const ChallengeRoute = () => {
     
 
     <Text3D
-        font="/public/fonts/helvetiker_regular.typeface.json" 
+        font="/fonts/helvetiker_regular.typeface.json" 
         lineHeight={0.25} 
-        // size={0.4} // Increased from 0.25 to 0.5
         position={[-16, 2.5, -5]} 
         rotation={[0, THREE.MathUtils.degToRad(30), 0]} 
         color="black"
