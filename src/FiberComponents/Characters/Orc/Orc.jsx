@@ -35,36 +35,42 @@ export function Orc(props) {
       <group name="Scene">
         <group name="Rig">
           <skinnedMesh
+          castShadow
             name="OrcRaider_ArmLeft"
             geometry={nodes.OrcRaider_ArmLeft.geometry}
             material={materials.orc_texture_A}
             skeleton={nodes.OrcRaider_ArmLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="OrcRaider_ArmRight"
             geometry={nodes.OrcRaider_ArmRight.geometry}
             material={materials.orc_texture_A}
             skeleton={nodes.OrcRaider_ArmRight.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="OrcRaider_Body"
             geometry={nodes.OrcRaider_Body.geometry}
             material={materials.orc_texture_A}
             skeleton={nodes.OrcRaider_Body.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="OrcRaider_Head"
             geometry={nodes.OrcRaider_Head.geometry}
             material={materials.orc_texture_A}
             skeleton={nodes.OrcRaider_Head.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="OrcRaider_LegLeft"
             geometry={nodes.OrcRaider_LegLeft.geometry}
             material={materials.orc_texture_A}
             skeleton={nodes.OrcRaider_LegLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="OrcRaider_LegRight"
             geometry={nodes.OrcRaider_LegRight.geometry}
             material={materials.orc_texture_A}

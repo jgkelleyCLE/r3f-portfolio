@@ -9,6 +9,8 @@ export function Mage(props) {
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions } = useAnimations(animations, group)  
+
+  console.log(actions)
   
 
   useEffect(() => {
@@ -31,17 +33,35 @@ export function Mage(props) {
     };
   }, [props.animation, actions]);
 
+  // useEffect(() => {
+  //   if (actions[props.animation] && props.pose) {
+  //     const action = actions[props.animation];
+      
+  //     // Reset the action
+  //     action.reset();
+      
+  //     // Set it to the end frame directly
+  //     action.time = action.getClip().duration;
+      
+  //     // Make sure it's paused and holds the final frame
+  //     action.clampWhenFinished = true;
+  //     action.play();
+  //     action.paused = true;
+  //   }
+  //   // Rest of your code...
+  // }, [props.animation, props.pose, actions]);
+
   return (
     <group ref={group} {...props} dispose={null} >
       <group name="Scene">
         <group name="Rig">
           <primitive object={nodes.root} castShadow />
-          <skinnedMesh  name="Mage_ArmLeft" geometry={nodes.Mage_ArmLeft.geometry} material={materials.mage_texture} skeleton={nodes.Mage_ArmLeft.skeleton} />
-          <skinnedMesh name="Mage_ArmRight" geometry={nodes.Mage_ArmRight.geometry} material={materials.mage_texture} skeleton={nodes.Mage_ArmRight.skeleton} />
-          <skinnedMesh name="Mage_Body" geometry={nodes.Mage_Body.geometry} material={materials.mage_texture} skeleton={nodes.Mage_Body.skeleton} />
-          <skinnedMesh name="Mage_Head" geometry={nodes.Mage_Head.geometry} material={materials.mage_texture} skeleton={nodes.Mage_Head.skeleton} />
-          <skinnedMesh name="Mage_LegLeft" geometry={nodes.Mage_LegLeft.geometry} material={materials.mage_texture} skeleton={nodes.Mage_LegLeft.skeleton} />
-          <skinnedMesh name="Mage_LegRight" geometry={nodes.Mage_LegRight.geometry} material={materials.mage_texture} skeleton={nodes.Mage_LegRight.skeleton} />
+          <skinnedMesh castShadow name="Mage_ArmLeft" geometry={nodes.Mage_ArmLeft.geometry} material={materials.mage_texture} skeleton={nodes.Mage_ArmLeft.skeleton} />
+          <skinnedMesh castShadow name="Mage_ArmRight" geometry={nodes.Mage_ArmRight.geometry} material={materials.mage_texture} skeleton={nodes.Mage_ArmRight.skeleton} />
+          <skinnedMesh castShadow name="Mage_Body" geometry={nodes.Mage_Body.geometry} material={materials.mage_texture} skeleton={nodes.Mage_Body.skeleton} />
+          <skinnedMesh castShadow name="Mage_Head" geometry={nodes.Mage_Head.geometry} material={materials.mage_texture} skeleton={nodes.Mage_Head.skeleton} />
+          <skinnedMesh castShadow name="Mage_LegLeft" geometry={nodes.Mage_LegLeft.geometry} material={materials.mage_texture} skeleton={nodes.Mage_LegLeft.skeleton} />
+          <skinnedMesh castShadow name="Mage_LegRight" geometry={nodes.Mage_LegRight.geometry} material={materials.mage_texture} skeleton={nodes.Mage_LegRight.skeleton} />
         </group>
       </group>
     </group>

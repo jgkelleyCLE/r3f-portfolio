@@ -42,15 +42,15 @@ export function WarriorSkeleton(props) {
       <group name="Scene">
         <group name="Rig">
           <primitive object={nodes.root} />
-          <skinnedMesh name="Skeleton_Warrior_ArmLeft" geometry={nodes.Skeleton_Warrior_ArmLeft.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_ArmLeft.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_ArmRight" geometry={nodes.Skeleton_Warrior_ArmRight.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_ArmRight.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_Body" geometry={nodes.Skeleton_Warrior_Body.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Body.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_Cloak" geometry={nodes.Skeleton_Warrior_Cloak.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Cloak.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_Eyes" geometry={nodes.Skeleton_Warrior_Eyes.geometry} material={materials.Glow} skeleton={nodes.Skeleton_Warrior_Eyes.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_Head" geometry={nodes.Skeleton_Warrior_Head.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Head.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_Jaw" geometry={nodes.Skeleton_Warrior_Jaw.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Jaw.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_LegLeft" geometry={nodes.Skeleton_Warrior_LegLeft.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_LegLeft.skeleton} />
-          <skinnedMesh name="Skeleton_Warrior_LegRight" geometry={nodes.Skeleton_Warrior_LegRight.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_LegRight.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_ArmLeft" geometry={nodes.Skeleton_Warrior_ArmLeft.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_ArmLeft.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_ArmRight" geometry={nodes.Skeleton_Warrior_ArmRight.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_ArmRight.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_Body" geometry={nodes.Skeleton_Warrior_Body.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Body.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_Cloak" geometry={nodes.Skeleton_Warrior_Cloak.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Cloak.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_Eyes" geometry={nodes.Skeleton_Warrior_Eyes.geometry} material={materials.Glow} skeleton={nodes.Skeleton_Warrior_Eyes.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_Head" geometry={nodes.Skeleton_Warrior_Head.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Head.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_Jaw" geometry={nodes.Skeleton_Warrior_Jaw.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_Jaw.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_LegLeft" geometry={nodes.Skeleton_Warrior_LegLeft.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_LegLeft.skeleton} />
+          <skinnedMesh castShadow name="Skeleton_Warrior_LegRight" geometry={nodes.Skeleton_Warrior_LegRight.geometry} material={materials.skeleton} skeleton={nodes.Skeleton_Warrior_LegRight.skeleton} />
         </group>
       </group>
     </group>

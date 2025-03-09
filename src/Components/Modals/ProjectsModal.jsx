@@ -56,9 +56,9 @@ const ProjectsModal = () => {
     
 
   return (
-    <Dialog open={projectGate} onOpenChange={() => dispatch(setProjectGate(false))} className="min-w-[1200px]">
+    <Dialog open={projectGate} onOpenChange={() => dispatch(setProjectGate(false))} className="min-w-[1200px] ">
       <DialogTrigger></DialogTrigger>
-      <DialogContent className="max-w-2xl border-primary">
+      <DialogContent className="max-w-2xl h-[600px] md:h-auto overflow-y-scroll  border-primary [&>button]:text-accent">
         <DialogHeader>
           <DialogTitle className="text-primary text-xl md:text-2xl">Projects</DialogTitle>
           <DialogDescription>
@@ -74,7 +74,7 @@ const ProjectsModal = () => {
         <DialogFooter className="bg-background">
           <FlexRow className="w-full bg-background">
             <DialogClose className="w-full"><Button className="bg-gray-400 p-2 hover:bg-gray-500 transition duration-300 rounded-md text-white hover font-bold cursor-pointer w-full text-lg">Close</Button></DialogClose>
-            <Button className="w-1/2 cursor-pointer hover:bg-primary/90 transition duration-300 bg-primary text-lg" onClick={()=> navigate('/projects')}>View All Projects</Button>
+            <Button className="w-1/2 cursor-pointer hover:bg-accent/90 transition duration-300 bg-accent text-lg" onClick={()=> navigate('/projects')}>View All Projects</Button>
 
           </FlexRow>
         </DialogFooter>

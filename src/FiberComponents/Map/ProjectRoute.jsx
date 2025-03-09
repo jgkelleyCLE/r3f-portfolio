@@ -5,12 +5,14 @@ import { RigidBody } from '@react-three/rapier'
 import { MovingForestTileLarge } from '../Models/MovingForestTileLarge'
 import { useFrame } from '@react-three/fiber'
 import { SwiperBlue } from '../Models/SwiperBlue'
-import { Text3D } from '@react-three/drei'
+import { Billboard, Text3D, Text, Html } from '@react-three/drei'
 import * as THREE from 'three'
 import { BlueGate } from '../Models/BlueGate'
 import ProjectGateDetector from '../Models/ProjectGateDetector'
 import { YellowGate } from '../Models/YellowGate'
 import TeleportDetector from '../Models/TeleportDetector'
+import AllFiberProjects from '../Projects/AllFiberProjects'
+import ProjectDetector from '../Models/ProjectDetector'
 
 
 const ProjectRoute = () => {
@@ -18,6 +20,7 @@ const ProjectRoute = () => {
       const [show, setShow] = useState(false)
 
     const ref = useRef()
+    const finalPlatRef = useRef()
 
     const ref2 = useRef()
       const [direction, setDirection] = useState(1);
@@ -108,12 +111,39 @@ const ProjectRoute = () => {
         <FixedForestTileLarge position={[0, 4.22, -60.5]} rotation={[0, 0, 0]} />
 
         {/* FINAL PLATFORM */}
+        <group ref={finalPlatRef}>
         <FixedForestTileLarge position={[0, 9.85, -73.5]} rotation={[0, 0, 0]} />
-        <FixedForestTileLarge position={[0, 9.85, -79.5]} rotation={[0, 0, 0]} />
         <FixedForestTileLarge position={[-5.9, 9.85, -73.5]} rotation={[0, 0, 0]} />
-        <FixedForestTileLarge position={[-5.9, 9.85, -79.5]} rotation={[0, 0, 0]} />
         <FixedForestTileLarge position={[5.9, 9.85, -73.5]} rotation={[0, 0, 0]} />
+
+        <FixedForestTileLarge position={[-5.9, 9.85, -79.5]} rotation={[0, 0, 0]} />
+        <FixedForestTileLarge position={[0, 9.85, -79.5]} rotation={[0, 0, 0]} />
         <FixedForestTileLarge position={[5.9, 9.85, -79.5]} rotation={[0, 0, 0]} />
+
+        <FixedForestTileLarge position={[-5.9, 9.85, -85.5]} rotation={[0, 0, 0]} />
+        <FixedForestTileLarge position={[0, 9.85, -85.5]} rotation={[0, 0, 0]} />
+        <FixedForestTileLarge position={[5.9, 9.85, -85.5]} rotation={[0, 0, 0]} />
+
+        <YellowGate position={[8, 10.5, -76.85]} bloomPosition={[8, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} name="projects_home_tele" />
+        <TeleportDetector name="teleport_projects_home" position={[8.35, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} />
+
+
+        <ProjectDetector />
+
+        
+            
+            <AllFiberProjects finalPlatRef={finalPlatRef} />
+          
+          
+         
+              
+              
+
+
+
+        </group>
+
+
         <Text3D 
             font="/fonts/helvetiker_regular.typeface.json" 
             lineHeight={0.25} 
@@ -126,12 +156,10 @@ const ProjectRoute = () => {
         </Text3D>
 
 
-        <YellowGate position={[8, 10.5, -76.85]} bloomPosition={[8, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} name="projects_home_tele" />
+        
 
-        <TeleportDetector name="teleport_projects_home" position={[8.35, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} />
-
-        <BlueGate position={[0, 9.5, -80.5]} />
-        <ProjectGateDetector position={[0, 9.5, -80.5]} />
+        {/* <BlueGate position={[0, 9.5, -80.5]} />
+        <ProjectGateDetector position={[0, 9.5, -80.5]} /> */}
 
 
         {/* FINAL PLATFORM */}
@@ -153,6 +181,11 @@ const ProjectRoute = () => {
             <Text3D font="/fonts/helvetiker_regular.typeface.json" fontSize={0.5} position={[5, 2.5, -17]} rotation={[0, THREE.MathUtils.degToRad(-65), 0]} color="black">
             {'<'}&mdash; Projects
             </Text3D>
+
+            
+
+            
+            
 
 
         <RigidBody type="kinematicPosition" name="desertTile" ref={ref}>

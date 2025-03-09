@@ -8,6 +8,7 @@ import HelpModal from '../Modals/HelpModal'
 import { Stats } from '@react-three/drei'
 import Timer from '@/FiberComponents/Timer'
 import FinishChallengeModal from '../Modals/FinishChallengeModal'
+import ContactModal from '../Modals/ContactModal'
 
 const BottomNav = () => {
   return (
@@ -23,6 +24,7 @@ const BottomNav = () => {
 
             {/* //GATE MODALS */}
             <div className="hidden">
+              <ContactModal />
             <AboutModal />
             <ProjectsModal />
             <FinishChallengeModal />

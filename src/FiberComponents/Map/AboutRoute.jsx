@@ -118,7 +118,7 @@ const AboutRoute = () => {
             <YellowGate position={[8, 2.5, 72.85]} bloomPosition={[8, 4, 72.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} name="gate_about_tele" />
             <TeleportDetector name="teleport_about_home" position={[8.35, 3.5, 72.85]} rotation={[0,THREE.MathUtils.degToRad(90), 0]} />
 
-            <RedGate position={[0, 2.5, 76.15]} />
+            <RedGate position={[0, 2.5, 76.15]}  />
             <AboutGateDetector position={[0, 2.5, 75.75]} />
 
             

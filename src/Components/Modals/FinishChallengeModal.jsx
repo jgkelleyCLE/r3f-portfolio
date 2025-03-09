@@ -74,17 +74,17 @@ useEffect(() => {
         className="[&>button]:hidden"
         >
                 <DialogHeader>
-                  <DialogTitle>Challenge Complete</DialogTitle>
+                  <DialogTitle className="text-xl text-primary md:text-2xl">Challenge Complete</DialogTitle>
                   <DialogDescription className="hidden">Choose your character to play with</DialogDescription>
                 </DialogHeader>
-                <div className="flex flex-col items-center mx-auto">
-                    <h1 className="text-lg md:text-xl">Congratulations on finishing the challenge with a time of <span className="font-bold">{formatTime(elapsedTime)}</span>!</h1>
+                <div className="flex flex-col gap-2 items-center mx-auto">
+                    <h1 className="text-lg md:text-xl text-primary">Congratulations on finishing the challenge with a time of <span className="font-bold">{formatTime(elapsedTime)}</span>!</h1>
                     
                     {
                         qualifiesForLeaderboard ? (
                             <FlexColumn>
                             
-                            <h1 className="text-green-500 text-lg md:text-xl">You qualify for the leaderboard with the {leaderboardPosition}{leaderboardPosition === 1 ? 'st' : leaderboardPosition === 2 ? 'nd' : leaderboardPosition === 3 ? 'rd' : 'th'} fastest time!</h1>
+                            <h1 className="text-accent text-lg md:text-xl mb-2">You qualify for the leaderboard with the {leaderboardPosition}{leaderboardPosition === 1 ? 'st' : leaderboardPosition === 2 ? 'nd' : leaderboardPosition === 3 ? 'rd' : 'th'} fastest time!</h1>
                             <SubmitTimeForm elapsedTime={elapsedTime} setOpen={setOpen} />
                             </FlexColumn>
                         ) : (

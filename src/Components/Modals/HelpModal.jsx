@@ -28,7 +28,7 @@ const HelpModal = () => {
                 <p className="hidden md:flex">Info</p>
             </div>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="[&>button]:text-accent">
             <DialogHeader>
               <DialogTitle className="text-primary text-xl md:text-2xl">Info</DialogTitle>
               <DialogDescription className="hidden">Info about this app</DialogDescription>

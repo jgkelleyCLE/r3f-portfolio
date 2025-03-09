@@ -34,12 +34,14 @@ export function Paladin(props) {
         <group name="Rig">
           <group name="Paladin_ArmLeft">
             <skinnedMesh
+            castShadow
               name="Paladin_ArmLeft_1"
               geometry={nodes.Paladin_ArmLeft_1.geometry}
               material={materials.paladin}
               skeleton={nodes.Paladin_ArmLeft_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Paladin_ArmLeft_2"
               geometry={nodes.Paladin_ArmLeft_2.geometry}
               material={materials.paladin_metallic}
@@ -48,12 +50,14 @@ export function Paladin(props) {
           </group>
           <group name="Paladin_ArmRight">
             <skinnedMesh
+            castShadow
               name="Paladin_ArmRight_1"
               geometry={nodes.Paladin_ArmRight_1.geometry}
               material={materials.paladin}
               skeleton={nodes.Paladin_ArmRight_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Paladin_ArmRight_2"
               geometry={nodes.Paladin_ArmRight_2.geometry}
               material={materials.paladin_metallic}
@@ -62,12 +66,14 @@ export function Paladin(props) {
           </group>
           <group name="Paladin_Body">
             <skinnedMesh
+            castShadow
               name="Paladin_Body_1"
               geometry={nodes.Paladin_Body_1.geometry}
               material={materials.paladin}
               skeleton={nodes.Paladin_Body_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Paladin_Body_2"
               geometry={nodes.Paladin_Body_2.geometry}
               material={materials.paladin_metallic}
@@ -76,12 +82,14 @@ export function Paladin(props) {
           </group>
           <group name="Paladin_Helmet">
             <skinnedMesh
+            castShadow
               name="Paladin_Helmet_1"
               geometry={nodes.Paladin_Helmet_1.geometry}
               material={materials.paladin}
               skeleton={nodes.Paladin_Helmet_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Paladin_Helmet_2"
               geometry={nodes.Paladin_Helmet_2.geometry}
               material={materials.paladin_metallic}
@@ -90,12 +98,14 @@ export function Paladin(props) {
           </group>
           <group name="Paladin_LegLeft">
             <skinnedMesh
+            castShadow
               name="Paladin_LegLeft_1"
               geometry={nodes.Paladin_LegLeft_1.geometry}
               material={materials.paladin}
               skeleton={nodes.Paladin_LegLeft_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Paladin_LegLeft_2"
               geometry={nodes.Paladin_LegLeft_2.geometry}
               material={materials.paladin_metallic}
@@ -104,12 +114,14 @@ export function Paladin(props) {
           </group>
           <group name="Paladin_LegRight">
             <skinnedMesh
+            castShadow
               name="Paladin_LegRight_1"
               geometry={nodes.Paladin_LegRight_1.geometry}
               material={materials.paladin}
               skeleton={nodes.Paladin_LegRight_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Paladin_LegRight_2"
               geometry={nodes.Paladin_LegRight_2.geometry}
               material={materials.paladin_metallic}

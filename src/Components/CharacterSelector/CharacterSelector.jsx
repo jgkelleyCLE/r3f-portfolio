@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     Dialog,
     DialogContent,
@@ -12,13 +12,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCharacter } from '@/redux/settingsSlice'
 import { PiUserSwitchLight } from "react-icons/pi";
 import { CharacterGrid } from '../UI'
+import { FaLock } from 'react-icons/fa'
 
 
 export const characters = [
   {
     id: 1,
-    name: "Mage",
-    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FMage.jpg?alt=media&token=81552ef6-57e4-49da-a307-cce9c2b74279"
+    name: "Robot",
+    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FRobot.jpg?alt=media&token=3363b4b9-8834-4ac7-90e3-d1b52ac577c4"
   },
   {
     id: 2,
@@ -27,8 +28,8 @@ export const characters = [
   },
   {
     id: 3,
-    name: "Robot",
-    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FRobot.jpg?alt=media&token=3363b4b9-8834-4ac7-90e3-d1b52ac577c4"
+    name: "Mage",
+    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FMage.jpg?alt=media&token=81552ef6-57e4-49da-a307-cce9c2b74279"
   },
   {
     id: 4,
@@ -50,6 +51,29 @@ export const characters = [
 
 const CharacterSelector = () => {
 
+  const raceGate = useSelector(state => state.gate.raceGate)
+  const challengeToken = useSelector(state => state.gate.challengeToken)
+
+  const [hasChallengeToken, setHasChallengeToken] = useState(
+    localStorage.getItem('challengeToken') === 'true'
+  );
+
+   // Update state when Redux state changes
+   useEffect(() => {
+    setHasChallengeToken(localStorage.getItem('challengeToken') === 'true');
+  }, [raceGate, challengeToken]);
+  
+  // Keep the storage event listener for changes from other tabs
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setHasChallengeToken(localStorage.getItem('challengeToken') === 'true');
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
   const [open, setOpen] = useState(false)
 
     const [selected, setSelected] = useState(null)
@@ -67,7 +91,7 @@ const CharacterSelector = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
   <DialogTrigger>
-    <div className="bg-white p-2 cursor-pointer hover:bg-gray-200 transition duration-300 rounded-md text-black font-bold flex items-center gap-2 md:w-36">
+    <div className="bg-white p-2 cursor-pointer hover:bg-gray-200 transition duration-300 rounded-md text-black font-bold flex items-center justify-center gap-2 md:w-36">
     <PiUserSwitchLight className="text-2xl" />
 
       <p className="hidden md:flex">Character</p>
@@ -81,14 +105,38 @@ const CharacterSelector = () => {
     <div className="flex flex-col items-center">
     <CharacterGrid className="mx-auto">
         
-        {
-          characters.map(item => (
-            <div key={item.id} className={` ${selectedCharacter === item.name ? "border-accent" : 'border-transparent'} flex flex-col items-center border-6 rounded-md md:w-44 `} onClick={() => characterHandler(item.name)}>
-              <img src={item.image} className="h-40 w-full md:h-60 md:w-full object-cover rounded-t-md cursor-pointer hover:opacity-90 transition duration-300 " />
-              <h1 className="text-xl text-primary">{item.name}</h1>
-          </div>
-          ))
-        }
+        
+
+
+          {
+            characters.map(item => (
+              <div
+                key={item.id} 
+                disabled={item.name === "Paladin" && !hasChallengeToken} 
+                className={` ${selectedCharacter === item.name ? "border-accent" : 'border-transparent'} flex flex-col  items-center border-6 rounded-md relative`} 
+                onClick={() => characterHandler(item.name)}
+              >
+                <img src={item.image} className="h-40 w-full md:h-60 md:w-48 object-cover rounded-t-md cursor-pointer hover:opacity-90 transition duration-300 " />
+                <h1 className="text-xl">{item.name}</h1>
+                {item.name === "Paladin" && !hasChallengeToken && (
+                  <>
+                  
+                  
+                  <div className="absolute top-0 left-0 h-[100%] w-full bg-black rounded-md opacity-40 flex flex-col items-center justify-center z-20"></div>
+
+                  
+                  <div className="absolute top-0 left-0 h-[100%] w-full flex flex-col items-center justify-center z-20">
+                    <FaLock className="z-50 text-white text-3xl" />
+
+                    <span className="text-white text-lg">Locked</span>
+                    <p className="text-white z-50 px-2">Complete the challenge to unlock!</p>
+                  </div>
+                  </>
+                )}
+              </div>
+            ))
+          }
+
         
     </CharacterGrid>
     </div>

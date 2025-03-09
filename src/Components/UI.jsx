@@ -84,6 +84,12 @@ export const NavContainer = tw.div`
     -translate-x-1/2
     z-40
     text-white
-    bg-gray-800/40
+    bg-slate-900/70
+    backdrop-blur-[6px]
 `
 
+export const FiberGrid = tw.div`
+    grid
+    grid-cols-3
+    gap-2
+`

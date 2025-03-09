@@ -33,7 +33,7 @@ const SettingsModal = () => {
             <p className="hidden md:flex">Settings</p>
         </div>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="[&>button]:text-accent">
         <DialogHeader>
           <DialogTitle className="text-xl md:text-2xl text-primary">Settings</DialogTitle>
           <DialogDescription className="hidden">Choose your character to play with</DialogDescription>

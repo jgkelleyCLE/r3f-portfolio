@@ -88,7 +88,7 @@ import { GoTrophy } from "react-icons/go";
                 <p className="hidden md:flex">Leaderboard</p>
             </div>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className="[&>button]:text-accent">
             <DialogHeader>
               <DialogTitle className="text-primary text-xl md:text-2xl">Top 15 Challenge Times</DialogTitle>
               <DialogDescription className="hidden"></DialogDescription>

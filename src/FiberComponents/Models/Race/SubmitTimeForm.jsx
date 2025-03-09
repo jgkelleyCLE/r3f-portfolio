@@ -44,14 +44,14 @@ const SubmitTimeForm = ({ elapsedTime, setOpen }) => {
 
   return (
     <form className="w-full flex justify-center items-center" onSubmit={timeHandler}>
-        <input className="p-2 rounded-l-md border-2 border-gray-300 text-lg focus:outline-none" 
+        <input className="p-2 rounded-l-md border-2 border-primary text-lg text-primary focus:outline-none" 
         placeholder="Username" 
         value={username} 
         onChange={(e)=> setUsername(e.target.value)}
         autoFocus={false}
         />
         
-        <button type="submit" className="bg-blue-900 border-2 border-blue-900 hover:bg-blue-800 cursor-pointer transition duration-300 text-white p-2 text-lg rounded-r-md" >{isLoading ? <ButtonSpinner /> : "Submit"}</button>
+        <button type="submit" className="bg-accent border-2 border-accent hover:bg-accent/90 cursor-pointer transition duration-300 text-white p-2 text-lg rounded-r-md" >{isLoading ? <ButtonSpinner /> : "Submit"}</button>
     </form>
   )
 }

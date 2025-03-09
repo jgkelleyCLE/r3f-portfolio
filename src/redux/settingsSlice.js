@@ -6,8 +6,8 @@ const theme = localStorage.getItem("jack-theme");
 
 const initialState = {
     gravity: 0.4,
-    lowGravity: fiberLowGravity ? fiberLowGravity : false,
-    character: portCharacter ? portCharacter : "Mage",
+    lowGravity: fiberLowGravity === "true",
+    character: portCharacter ? portCharacter : "Robot",
     theme: theme ? theme : "jack-light"
 }
 
@@ -21,7 +21,7 @@ const settingsSlice = createSlice({
         },
         setLowGravity: (state, action) => {
             state.lowGravity = action.payload;
-            localStorage.setItem("fiberLowGravity", action.payload);
+            localStorage.setItem("fiberLowGravity", action.payload.toString());
         },
         setCharacter: (state, action) => {
             state.character = action.payload;

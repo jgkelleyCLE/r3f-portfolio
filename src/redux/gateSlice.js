@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const challengeToken = localStorage.getItem('challengeToken') || false;
 
 const initialState = {
+    projectsShow: false,
+    contactGate: false,
     aboutGate: false,
     projectGate: false,
     raceGate: false,
@@ -19,6 +21,9 @@ export const gateSlice = createSlice({
     name: 'gate',
     initialState,
     reducers: {
+        setContactGate: (state, action) => {
+            state.contactGate = action.payload
+        },
         setAboutGate: (state, action) => {
             state.aboutGate = action.payload       
         },
@@ -43,9 +48,12 @@ export const gateSlice = createSlice({
         setChallengeComplete: (state, action) => {
             state.challengeComplete = action.payload
             localStorage.setItem('challengeToken', action.payload)
+        },
+        setProjectsShow: (state, action) => {
+            state.projectsShow = action.payload
         }
     }
 })
 
-export const { setAboutGate, setProjectGate, setRaceGate, setRaceStart, startTimer, setEndTime, raceTime, setElapsedTime, setChallengeComplete } = gateSlice.actions;
+export const { setContactGate, setAboutGate, setProjectGate, setRaceGate, setRaceStart, startTimer, setEndTime, raceTime, setElapsedTime, setChallengeComplete, setProjectsShow } = gateSlice.actions;
 export default gateSlice.reducer;

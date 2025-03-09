@@ -14,11 +14,12 @@ import MechController from './Characters/Mech/MechController'
 import OrcController from './Characters/Orc/OrcController'
 import MainLanding from './Map/MainLanding'
 
-const Experience = () => {
+const Experience = ({ isJumping, setIsJumping, movement }) => {
 
   const selectedCharacter = useSelector(state => state.settings.character)
 
   const shadowCameraRef = useRef()
+
 
 
   return (
@@ -29,8 +30,10 @@ const Experience = () => {
         position={[-50, 50, 25]} 
         intensity={2.5} 
         castShadow
-        shadow-mapSize-width={512}
-        shadow-mapSize-height={512}
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        // shadow-mapSize-width={8096}
+        // shadow-mapSize-height={8096}
         
         >
           <PerspectiveCamera ref={shadowCameraRef} attach={"shadow-camera"} near={25} far={120} fov={120} />
@@ -50,7 +53,42 @@ const Experience = () => {
         {/* <Perf /> */}
 
         {
-          selectedCharacter === "Mage" ? <MageController /> : selectedCharacter === "Skeleton" ?  <WarriorSkeletonController /> : selectedCharacter === "Robot" ? <RobotController /> : selectedCharacter === "Paladin" ? <PaladinController /> : selectedCharacter === "Mech Warrior" ? <MechController /> : selectedCharacter === "Orc" ? <OrcController /> :  null
+          selectedCharacter === "Mage" ? 
+          <MageController 
+          isJumping={isJumping} 
+          setIsJumping={setIsJumping} 
+          movement={movement} 
+          /> : 
+          selectedCharacter === "Skeleton" ?  
+          <WarriorSkeletonController 
+            isJumping={isJumping} 
+            setIsJumping={setIsJumping} 
+            movement={movement} 
+          /> : 
+          selectedCharacter === "Robot" ? 
+          <RobotController 
+            isJumping={isJumping} 
+            setIsJumping={setIsJumping} 
+            movement={movement} 
+          /> : 
+          selectedCharacter === "Paladin" ? 
+          <PaladinController 
+            isJumping={isJumping} 
+            setIsJumping={setIsJumping} 
+            movement={movement} 
+          /> : 
+          selectedCharacter === "Mech Warrior" ? 
+          <MechController 
+            isJumping={isJumping} 
+            setIsJumping={setIsJumping} 
+            movement={movement} 
+          /> : 
+          selectedCharacter === "Orc" ? 
+          <OrcController 
+            isJumping={isJumping} 
+            setIsJumping={setIsJumping} 
+            movement={movement} 
+          /> :  null
         }
 
         {/* MAP */}

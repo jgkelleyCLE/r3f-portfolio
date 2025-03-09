@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
 export function Mech(props) {
@@ -32,48 +32,56 @@ export function Mech(props) {
       <group name="Scene">
         <group name="Rig">
           <skinnedMesh
+          castShadow
             name="CombatMech_ArmLeft"
             geometry={nodes.CombatMech_ArmLeft.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_ArmLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_ArmRight"
             geometry={nodes.CombatMech_ArmRight.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_ArmRight.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_Body"
             geometry={nodes.CombatMech_Body.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_Body.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_Head"
             geometry={nodes.CombatMech_Head.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_Head.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_LegLeft"
             geometry={nodes.CombatMech_LegLeft.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_LegLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_LegRight"
             geometry={nodes.CombatMech_LegRight.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_LegRight.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_ShoulderLeft"
             geometry={nodes.CombatMech_ShoulderLeft.geometry}
             material={materials.combatMech}
             skeleton={nodes.CombatMech_ShoulderLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="CombatMech_ShoulderRight"
             geometry={nodes.CombatMech_ShoulderRight.geometry}
             material={materials.combatMech}

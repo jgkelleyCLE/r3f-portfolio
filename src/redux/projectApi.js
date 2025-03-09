@@ -17,6 +17,14 @@ export const projectApi = createApi({
             }),
             providesTags: ['Project']
         }),
+        getProjectById: builder.query({
+            query: (id) => ({
+                url: `/api/projects/${id}`,
+                method: 'GET',
+                body: { id }
+            }),
+            providesTags: ['Project']
+        }),
         getLazyProjects: builder.query({
             query: () => ({
                 url: '/api/projects',
@@ -27,4 +35,4 @@ export const projectApi = createApi({
     })
 })
 
-export const { useGetAllProjectsQuery, useLazyGetAllProjectsQuery } = projectApi;
+export const { useGetAllProjectsQuery, useLazyGetAllProjectsQuery, useGetProjectByIdQuery } = projectApi;

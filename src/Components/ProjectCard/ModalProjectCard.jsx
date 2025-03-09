@@ -3,23 +3,25 @@ import { FlexRow } from '../UI'
 import { FaGithub } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import TechCard from './TechCard';
+import Slideshow from '../SlideShow/Slideshow';
 
 const ProjectCard = ({ item }) => {
 
     const [selected, setSelected] = useState(null)
     const [show, setShow] = useState(false)
 
-    
+    const photos = item.images
 
   return (
     <div key={item._id} className=" flex flex-col items-center p-2 rounded-md border border-primary w-full max-w-[1200px] my-1 ">
               <div className="flex flex-col items-center w-full px-2 ">
-              <img className="w-full md:w-[500px] rounded-md" src={item.images[0].image} alt={item?.title}  />
+              
+              <Slideshow photos={photos} />
               
               
               </div>
               <div className="flex flex-col items-start p-2">
-                <h1 className="font-bold text-primary text-lg md:text-2xl mb-2">{item.title}</h1>
+                <h1 className="font-bold text-primary text-lg md:text-2xl my-2">{item.title}</h1>
                 <p className=" text-md text-primary">{item.description}</p>
                 
                 <FlexRow className="my-2 flex-wrap w-full">

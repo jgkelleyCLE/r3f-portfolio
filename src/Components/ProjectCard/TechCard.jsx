@@ -5,8 +5,9 @@ import {
     SiExpress, SiNodedotjs, SiTailwindcss, SiFirebase,
     SiSocketdotio, SiTypescript, SiJavascript, SiCss3,
     SiHtml5, SiVuedotjs, SiAngular, SiGithub,
-    SiVercel, SiNetlify, SiHeroku,
+    SiVercel, SiNetlify, SiHeroku, SiPostgresql
   } from 'react-icons/si'
+
 
 const TechCard = ({ item }) => {
 
@@ -14,8 +15,7 @@ const TechCard = ({ item }) => {
         // Frameworks
         'React': <SiReact className="text-blue-400" />,
         'NextJS': <SiNextdotjs className="text-black" />,
-        'Vue': <SiVuedotjs className="text-green-500" />,
-        'Angular': <SiAngular className="text-red-500" />,
+        
         
         // State Management
         'Redux': <SiRedux className="text-purple-600" />,
@@ -23,10 +23,12 @@ const TechCard = ({ item }) => {
         
         // Backend & Databases
         'MongoDB': <SiMongodb className="text-green-600" />,
+        'PostgreSQL': <SiPostgresql className="text-[#336791]" />,
         'Express': <SiExpress className="text-fallback" />,
         'NodeJS': <SiNodedotjs className="text-green-500" />,
         'Firebase': <SiFirebase className="text-yellow-500" />,
         'Socket.io': <SiSocketdotio className="text-black" />,
+
         
         // Styling
         'TailwindCSS': <SiTailwindcss className="text-blue-400" />,
@@ -39,9 +41,8 @@ const TechCard = ({ item }) => {
         
         // Deployment
         'GitHub': <SiGithub className="text-black" />,
-        'Vercel': <SiVercel className="text-black" />,
         'Netlify': <SiNetlify className="text-blue-400" />,
-        'Heroku': <SiHeroku className="text-purple-600" />,
+        
         
         // Default for unknown tech
         'default': <div className="w-5 h-5 bg-gray-300 rounded-full" />

@@ -52,22 +52,23 @@ const ThemeToggle = () => {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      {/* Simple button with background swatch */}
+      
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1  rounded-md transition-colors"
+        className="flex items-center  rounded-md transition-colors -mr-1"
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
+        {/* TOP NAV */}
         <div 
-          className="w-7 h-7 rounded-full border-2"
+          className="w-7 h-7 rounded-full border-2 cursor-pointer"
           style={{ backgroundColor: currentTheme.foreground, borderColor: currentTheme.accent }}
         ></div>
         <span className="text-primary font-medium hidden">{currentTheme.label}</span>
         <FiChevronDown className={`text-primary transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
-      {/* Dropdown with simplified theme options */}
+      
       {isOpen && (
         <div className="absolute right-0 mt-1 p-2 bg-background border border-border rounded-md shadow-lg z-10 w-48">
           <div className="grid grid-cols-1 gap-1">

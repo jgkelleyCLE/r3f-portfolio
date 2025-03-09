@@ -5,6 +5,7 @@ import About from './Pages/About'
 import BottomNav from "./Components/BottomNav/BottomNav"
 import TopNav from "./Components/TopNav/TopNav"
 import { Toaster } from 'sonner'
+import Contact from "./Pages/Contact"
 
 function App() {
 
@@ -33,6 +34,7 @@ function AppContent() {
         <Route path="/" element={<FiberApp />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   )

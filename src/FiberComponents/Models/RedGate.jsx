@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
 import { useThree } from '@react-three/fiber'
 
-export function RedGate({ props, position }) {
+export function RedGate({ props, position, rotation, colliderType }) {
   const { nodes, materials } = useGLTF('models/Items/gateLargeWide_teamRed.glb')
   const { scene, camera } = useThree()
   const glowRef = useRef()
@@ -18,8 +18,8 @@ export function RedGate({ props, position }) {
 
   return (
     <>
-      <group {...props} dispose={null} position={position}>
-        <RigidBody type="fixed" name="gate" colliders={'trimesh'}>
+      <group {...props} dispose={null} position={position} rotation={rotation}>
+        <RigidBody type="fixed" name="gate" colliders={"hull"}>
           <mesh
             castShadow
             receiveShadow

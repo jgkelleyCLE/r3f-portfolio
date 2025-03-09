@@ -33,18 +33,21 @@ export function Robot(props) {
       <group name="Scene">
         <group name="Rig">
           <skinnedMesh
+          castShadow
             name="Robot_Two_ArmLeft"
             geometry={nodes.Robot_Two_ArmLeft.geometry}
             material={materials.robot}
             skeleton={nodes.Robot_Two_ArmLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Robot_Two_ArmRight"
             geometry={nodes.Robot_Two_ArmRight.geometry}
             material={materials.robot}
             skeleton={nodes.Robot_Two_ArmRight.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Robot_Two_Body"
             geometry={nodes.Robot_Two_Body.geometry}
             material={materials.robot}
@@ -52,12 +55,14 @@ export function Robot(props) {
           />
           <group name="Robot_Two_Head">
             <skinnedMesh
+            castShadow
               name="Robot_Two_Head_1"
               geometry={nodes.Robot_Two_Head_1.geometry}
               material={materials.robot}
               skeleton={nodes.Robot_Two_Head_1.skeleton}
             />
             <skinnedMesh
+            castShadow
               name="Robot_Two_Head_2"
               geometry={nodes.Robot_Two_Head_2.geometry}
               material={materials.robot_glow}
@@ -65,12 +70,14 @@ export function Robot(props) {
             />
           </group>
           <skinnedMesh
+          castShadow
             name="Robot_Two_LegLeft"
             geometry={nodes.Robot_Two_LegLeft.geometry}
             material={materials.robot}
             skeleton={nodes.Robot_Two_LegLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Robot_Two_LegRight"
             geometry={nodes.Robot_Two_LegRight.geometry}
             material={materials.robot}
