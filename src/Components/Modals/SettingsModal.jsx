@@ -11,7 +11,7 @@ import {
   import { IoSettingsOutline } from "react-icons/io5";
   import { Switch } from "@/components/ui/switch"
 import { useDispatch, useSelector } from 'react-redux';
-import { setLowGravity } from '@/redux/settingsSlice';
+import { setControls, setLowGravity } from '@/redux/settingsSlice';
 import { Keycap } from "keycap";
 import { FlexRow } from '../UI';
 
@@ -23,6 +23,9 @@ const SettingsModal = () => {
     const dispatch = useDispatch()
 
     const lowGravity = useSelector(state => state.settings.lowGravity)
+    const showControls = useSelector(state => state.settings.controls)
+
+    console.log("SHOW CONTROLS: ", showControls)
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -46,6 +49,14 @@ const SettingsModal = () => {
             <p className="text-xs text-gray-500">Ability to jump higher</p>
             </div>
             <Switch className="data-[state=checked]:bg-accent data-[state=unchecked]:bg-primary" checked={lowGravity} onCheckedChange={(checked)=> dispatch(setLowGravity(checked))} />
+
+          </div>
+          <div className="border border-gray-300 p-2 w-full rounded-md flex items-center justify-between">
+            <div className="flex flex-col items-start">
+            <h1 className="text-lg font-bold text-primary">Show Controls Overlay</h1>
+            <p className="text-xs text-gray-500">Desktop only</p>
+            </div>
+            <Switch className="data-[state=checked]:bg-accent data-[state=unchecked]:bg-primary" checked={showControls} onCheckedChange={(checked)=> dispatch(setControls(checked))} />
 
           </div>
 

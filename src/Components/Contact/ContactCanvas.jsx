@@ -1,7 +1,6 @@
 import { Mech } from '@/FiberComponents/Characters/Mech/Mech'
 import { Orc } from '@/FiberComponents/Characters/Orc/Orc'
 import { Robot } from '@/FiberComponents/Characters/Robot/Robot'
-import { WarriorSkeleton } from '@/FiberComponents/Characters/WarriorSkeleton/WarriorSkeleton'
 import { Cactus } from '@/FiberComponents/Models/Cactus'
 import { FixedDesertTileLarge } from '@/FiberComponents/Models/FixedDesertTileLarge'
 import { OrbitControls } from '@react-three/drei'

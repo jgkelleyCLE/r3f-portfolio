@@ -13,7 +13,7 @@ export function YellowSwiper({props, position, rotation, swiperSpeed}) {
       })
   return (
     <group {...props} dispose={null} position={position} rotation={rotation}>
-        <RigidBody type="kinematicVelocity" colliders={"trimesh"} ref={swiper} restitution={5} name="swiper">
+        <RigidBody type="kinematicVelocity" colliders={"trimesh"} ref={swiper} restitution={4} name="swiper">
       <mesh
         castShadow
         receiveShadow

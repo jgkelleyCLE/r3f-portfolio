@@ -1,8 +1,6 @@
 import { Gltf, Grid, OrbitControls, PerspectiveCamera, useHelper } from '@react-three/drei'
 import React, { useRef } from 'react'
-import Map from './Map/Map'
 import MageController from './Characters/Mage/MageController'
-import WarriorSkeletonController from './Characters/WarriorSkeleton/WarriorSkeletonController'
 import { useSelector } from 'react-redux'
 import { CuboidCollider, RigidBody } from '@react-three/rapier'
 import { DirectionalLightHelper } from 'three'
@@ -13,6 +11,7 @@ import PaladinController from './Characters/Paladin/PaladinController'
 import MechController from './Characters/Mech/MechController'
 import OrcController from './Characters/Orc/OrcController'
 import MainLanding from './Map/MainLanding'
+import DruidController from './Characters/Druid/DruidController'
 
 const Experience = ({ isJumping, setIsJumping, movement }) => {
 
@@ -59,8 +58,8 @@ const Experience = ({ isJumping, setIsJumping, movement }) => {
           setIsJumping={setIsJumping} 
           movement={movement} 
           /> : 
-          selectedCharacter === "Skeleton" ?  
-          <WarriorSkeletonController 
+          selectedCharacter === "Druid" ?  
+          <DruidController
             isJumping={isJumping} 
             setIsJumping={setIsJumping} 
             movement={movement} 

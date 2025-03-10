@@ -3,7 +3,7 @@ import { Button } from '@/Components/ui/button'
 import { setElapsedTime, setRaceGate } from '@/redux/gateSlice'
 import { usePostScoreMutation } from '@/redux/scoreApi'
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'sonner'
 
 const SubmitTimeForm = ({ elapsedTime, setOpen }) => {
@@ -11,7 +11,18 @@ const SubmitTimeForm = ({ elapsedTime, setOpen }) => {
     
     const dispatch = useDispatch()
     const [username, setUsername] = useState("")
+    const [isTouch, setIsTouch] = useState(false)
+    const character = useSelector(state => state.settings.character)
+    console.log("CHARACTER: ", character)
+
+    React.useEffect(() => {
+        const mediaQuery = window.matchMedia("(pointer: coarse)");
+        setIsTouch(mediaQuery.matches);
+      }, []);
+
     
+      const device = isTouch ? "mobile" : "desktop"
+      
 
     const [submitTime, { data: timeData, isSuccess, isLoading, isError, error }] = usePostScoreMutation()
 
@@ -21,12 +32,17 @@ const SubmitTimeForm = ({ elapsedTime, setOpen }) => {
         if(username.trim() === ""){
             toast.error("Username cannot be empty!")
             return
+        }else if(username.length > 15){
+            toast.error("Username must be less than 15 characters!")
+            return
         }else {
-            submitTime({ username, time: elapsedTime })
+            submitTime({ username, time: elapsedTime, device, character })
         }
         
 
     }
+
+    
 
     useEffect(()=> {
         if(isSuccess){

@@ -74,11 +74,11 @@ const OrcController = ({ isJumping, setIsJumping, movement }) => {
                                      let isAttacking = false
    
                                      if(movement.right){
-                                       rotVel.y -= ROTATION_SPEED * 0.6;
+                                       rotVel.y -= ROTATION_SPEED * 0.675;
                                      }
    
                                      if (movement.left) {
-                                       rotVel.y += ROTATION_SPEED * 0.6;
+                                       rotVel.y += ROTATION_SPEED * 0.675;
                                      }
                          
                          

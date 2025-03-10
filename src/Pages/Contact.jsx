@@ -1,9 +1,14 @@
 import ContactCanvas from '@/Components/Contact/ContactCanvas'
 import ContactForm from '@/Components/Contact/ContactForm'
 import { ContentContainer, FlexRow, PageContainer, PageHeader } from '@/Components/UI'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Contact = () => {
+
+  useEffect(()=> {
+    document.title = "Jack Kelley | Contact Me"
+  }, [])
+
   return (
     <PageContainer>
         <ContentContainer>
@@ -16,7 +21,7 @@ const Contact = () => {
                 <ContactCanvas />
             </div>
 
-            {/* RIGHT SIDE - Remove max-w-[500px] to let it be responsive */}
+            {/* RIGHT SIDE  */}
             <div className="w-full md:w-1/2 h-3/4 md:h-[500px]">
                 <ContactForm />
             </div>

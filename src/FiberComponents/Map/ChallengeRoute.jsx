@@ -15,6 +15,9 @@ import { SmallRedTile } from '../Models/SmallRedTile'
 // import { YellowSwiper } from '../Models/YellowSwiper'
 import { useFrame } from '@react-three/fiber'
 import { MovingRedTileLarge } from '../Models/MovingRedTileLarge'
+import { BarrierLarge } from '../Models/BarrierLarge'
+import { YellowSwiper } from '../Models/YellowSwiper'
+import { Beachball } from '../Models/Beachball'
 
 const ChallengeRoute = () => {
 
@@ -67,8 +70,8 @@ const ChallengeRoute = () => {
           // Second platform animation - opposite direction
           if (ref2.current) {
             const speed = 4;
-            const range = 8; // Range for upward movement
-            const basePosition = 0.5;
+            const range = 2; // Range for upward movement
+            const basePosition = 5.5;
             const position = ref2.current.translation();
             const nextY = position.y + direction * speed * 0.02;
             
@@ -163,7 +166,7 @@ const ChallengeRoute = () => {
       }
 
 
-    {/* START GATE */}
+    
     
 
     {/* END GATE */}
@@ -174,7 +177,7 @@ const ChallengeRoute = () => {
     {
       lowGravity ? null : (
         <>
-          <RaceDetector position={[-32, 18, 0]} name="end_trigger" rotation={[0, THREE.MathUtils.degToRad(-90), 0]} />
+          <RaceDetector position={[-32, 19, 0]} name="end_trigger" rotation={[0, THREE.MathUtils.degToRad(-90), 0]} />
           <RaceGateWindow position={[-32, 17.8, 0]} color="blue" rotation={[0, THREE.MathUtils.degToRad(-90), 0]} />
 
         </>
@@ -192,12 +195,36 @@ const ChallengeRoute = () => {
         {/* <YellowSwiper position={[-25.5, -1.7, -3.1]} rotation={[0, 0, 0]} swiperSpeed={4} /> */}
 
         {/* <SmallRedTile position={[-40.5, -1.5, 0]} rotation={[0, 0, 0]} /> */}
-        <SmallRedTile position={[-41.5, -1.5, 0]} rotation={[0, 0, 0]} />
-        <SmallRedTile position={[-45.5, -1.5, 0]} rotation={[0, 0, 0]} />
+        {/* <SmallRedTile position={[-41.5, -1.5, 0]} rotation={[0, 0, 0]} />
+        <SmallRedTile position={[-45.5, -1.5, 0]} rotation={[0, 0, 0]} /> */}
 
         
+        <FixedRedTileLarge position={[-43.5, -2, 0]} rotation={[0, 0, 0]} />
+        <YellowSwiper position={[-43.5, -1, 0]} rotation={[0, 0, 0]} swiperSpeed={3} />
 
-        {/* <YellowSwiper position={[-43.5, -1.5, 3.1]} rotation={[0, 0, 0]} swiperSpeed={3} /> */}
+
+        <FixedRedTileLarge position={[-43.5, -2, -8.5]} rotation={[0, 0, 0]} />
+        <YellowSwiper position={[-43.5, -1, -8.5]} rotation={[0, 0, 0]} swiperSpeed={2} />
+
+
+        <FixedRedTileLarge position={[-51.5, -2, -8.5]} rotation={[0, 0, 0]} />
+        <YellowSwiper position={[-51.5, -1, -8.5]} rotation={[0, 0, 0]} swiperSpeed={3} />
+
+        <FixedRedTileLarge position={[-58.5, -1.5, -8.5]} rotation={[0, 0, 0]} />
+
+          <YellowSwiper position={[-58.5, -1, -8.5]} rotation={[0, 0, 0]} swiperSpeed={-2} />
+
+        <FixedRedTileLarge position={[-58.5, -1, -1.5]} rotation={[0, 0, 0]} />
+
+          {/* DOUBLE PLATFORM */}
+        <YellowSwiper position={[-62, 0, -1.5]} rotation={[0, 0, 0]} swiperSpeed={-3} />
+        <YellowSwiper position={[-55.5, 0, -1.5]} rotation={[0, 0, 0]} swiperSpeed={1} />
+
+
+        {/* FINAL STEPS */}
+        <FixedRedTileLarge position={[-58.5, -0.5, 5.5]} rotation={[0, 0, 0]} />
+        <FixedRedTileLarge position={[-52.5, 0, 5.5]} rotation={[0, 0, 0]} />
+            <Beachball position={[-52.5, 0.5, 5.5]} />
 
         {/* UPLIFT */}
         {/* <YellowSwiper position={[-48.5, 4, 2]} rotation={[0, 0, 0]} swiperSpeed={2} /> */}

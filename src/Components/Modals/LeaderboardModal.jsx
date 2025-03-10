@@ -11,6 +11,9 @@ import { useGetScoresQuery } from '@/redux/scoreApi'
 import { FlexColumn, FlexRow } from '../UI'
 import PageSpinner from '../PageSpinner'
 import { GoTrophy } from "react-icons/go";
+import { IoDesktopOutline } from "react-icons/io5";
+import { ImMobile } from "react-icons/im";
+
 
 
   const LeaderboardModal = () => {
@@ -42,7 +45,17 @@ import { GoTrophy } from "react-icons/go";
       })
     
     
-     
+     const charIcons = {
+      mech: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/MechIcon.webp?alt=media&token=c6071357-c942-4694-b890-de442a01858a",
+      robot: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/RobotIcon.webp?alt=media&token=2296f3c4-0440-4c86-a4ad-e3a31c83f695",
+      robot2: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/RobIcon.webp?alt=media&token=f99b26f2-8210-461b-923b-0c3f38942710",
+      mage: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/MageIcon.webp?alt=media&token=45585859-aaa5-4b9e-ab32-d3e67cf31aca",
+      orc: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/OrcIcon.webp?alt=media&token=71a0277b-1ad0-4c65-9c8d-4f2dc35729c5",
+      paladin: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/PaladinIcon.webp?alt=media&token=1e9cedab-7cbb-4522-96b5-6ed7aa95b3d3",
+      druid: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/DruidIcon.webp?alt=media&token=c164a075-a5b9-4c38-99c5-b6157c64ef87"
+     }
+
+    
       
 
       content = <FlexColumn>
@@ -58,9 +71,14 @@ import { GoTrophy } from "react-icons/go";
                     <FlexRow>
                         <h1 className="mr-1">{index + 1}</h1>
                       <div className="flex flex-col items-start">
-                        <h1 className="font-bold text-primary text-lg md:text-xl">{item?.username}</h1>
-                        <h1 className="text-xs md:text-sm text-secondary line-clamp-1">{new Date(item?.createdAt).toLocaleString()}</h1>
+                        <FlexRow>
+                          <h1 className="font-bold text-primary text-lg md:text-xl">{item?.username}</h1>
+                          <h1>{item?.device === 'mobile' ? <ImMobile /> : <IoDesktopOutline />}</h1>
+                        </FlexRow>
+                        <h1 className="text-xs md:text-sm text-primary line-clamp-1">{new Date(item?.createdAt).toLocaleString()}</h1>
                       </div>
+                          
+                          <img src={item?.character === "Mech Warrior" ? charIcons.mech : item?.character === "Paladin" ? charIcons.paladin : item?.character === "Mage" ? charIcons.mage : item?.character === "Robot" ? charIcons.robot2 : item?.character === "Orc" ? charIcons.orc : item.character === "Druid" ? charIcons.druid : null} className={`object-contain w-7 h-7 md:w-10 md:h-10`} />
                         </FlexRow>
 
                       

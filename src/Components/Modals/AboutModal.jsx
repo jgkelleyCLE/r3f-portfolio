@@ -41,7 +41,7 @@ const AboutModal = () => {
   return (
     <Dialog open={aboutGate} onOpenChange={() => dispatch(setAboutGate(false))}>
   <DialogTrigger></DialogTrigger>
-  <DialogContent className="min-w-11/12 border-primary [&>button]:text-accent">
+  <DialogContent className="max-w-[1200px]  border-primary [&>button]:text-accent">
     <DialogHeader>
       <DialogTitle className="text-primary text-xl md:text-2xl">About Me</DialogTitle>
       <DialogDescription>
@@ -51,9 +51,18 @@ const AboutModal = () => {
       
       
               <img 
-      
+    
                 src="https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FPortoJack.webp?alt=media&token=b2c64a37-d338-4cd7-90a3-e88fd4ce7541" 
-                className={`w-full max-w-[400px] max-h-[800px] h-[200px] md:h-full object-cover transition-opacity rounded-md duration-300`}
+                className={`w-full max-w-[400px] max-h-[800px] h-[200px] md:h-full object-cover transition-opacity rounded-md duration-300 hidden md:block`}
+                alt="Profile picture in Portugal" 
+                
+              />
+
+
+              <img 
+    
+                src="https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/PortoMobile.webp?alt=media&token=38ba1b82-2ddf-419d-a033-9b77359fcfbf" 
+                className={`w-full max-h-[800px] h-[200px] md:h-full object-cover transition-opacity rounded-md duration-300 md:hidden`}
                 alt="Profile picture in Portugal" 
                 
               />
@@ -63,7 +72,7 @@ const AboutModal = () => {
                  
                  
           <div>
-          <p className="text-start">I'm Jack, a self-taught web developer with a passion for building modern, interactive web experiences. While my background isn't traditionally in tech, I've always been drawn to problem-solving and creating things from scratch. </p>
+          <p className="text-start">I'm Jack, a self-taught web developer with a passion for building modern, interactive web experiences. While my background is not traditionally in tech, I've always been drawn to problem-solving and creating things from scratch. </p>
           </div>
 
           <div className="hidden md:block">
@@ -73,7 +82,7 @@ const AboutModal = () => {
 
           
           <h1 className="text-xl font-bold my-4">Preferred Technologies</h1>
-            <FlexColumn className="gap-1">
+            {/* <FlexColumn className="gap-1">
           <FlexRow className="mx-auto gap-4">
           {
             frontSkills.map((item, index) => (
@@ -88,7 +97,34 @@ const AboutModal = () => {
             ))
           }
           </FlexRow>
-          </FlexColumn>
+          </FlexColumn> */}
+
+<div className="w-full  max-w-[500px]">
+  {/* FRONTEND */}
+  <div className="mb-2">
+    {/* <h2 className="text-lg text-start font-medium mb-1">Frontend</h2> */}
+    <FlexRow className="w-full md:w-full lg:w-5/6 justify-between">
+      {
+        frontSkills.map((item, index) => (
+          <TechCard item={item} key={index} />
+        ))
+      }
+    </FlexRow>
+  </div>
+  
+  {/* {BACKEND} */}
+  <div>
+    {/* <h2 className="text-lg text-start font-medium mb-1">Backend</h2> */}
+    <FlexRow className="w-full md:w-full lg:w-5/6 justify-between">
+      {
+        backSkills.map((item, index) => (
+          <TechCard item={item} key={index} />
+        ))
+      }
+    </FlexRow>
+  </div>
+</div>
+
           <Button onClick={()=> navigate('/about')} className="w-full mt-2 font-bold text-lg hover:bg-primary/80 cursor-pointer transition duration-300">About Me Page</Button>
         
       </div>

@@ -21,10 +21,15 @@ export const characters = [
     name: "Robot",
     image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FRobot.jpg?alt=media&token=3363b4b9-8834-4ac7-90e3-d1b52ac577c4"
   },
+  // {
+  //   id: 2,
+  //   name: "Skeleton",
+  //   image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FWarriorSkelly.jpg?alt=media&token=4329f710-e88e-469f-bd1c-c895fba17aad"
+  // },
   {
     id: 2,
-    name: "Skeleton",
-    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/media%2FWarriorSkelly.jpg?alt=media&token=4329f710-e88e-469f-bd1c-c895fba17aad"
+    name: "Druid",
+    image: "https://firebasestorage.googleapis.com/v0/b/collab-checklist.appspot.com/o/DruidSelector.webp?alt=media&token=ff22c736-4b47-422f-bbe5-37244b1ec4f0"
   },
   {
     id: 3,
@@ -116,7 +121,7 @@ const CharacterSelector = () => {
                 className={` ${selectedCharacter === item.name ? "border-accent" : 'border-transparent'} flex flex-col  items-center border-6 rounded-md relative`} 
                 onClick={() => characterHandler(item.name)}
               >
-                <img src={item.image} className="h-40 w-full md:h-60 md:w-48 object-cover rounded-t-md cursor-pointer hover:opacity-90 transition duration-300 " />
+                <img src={item.image} className="h-32 w-4/5 md:h-60 md:w-48 object-cover rounded-md cursor-pointer hover:opacity-90 transition duration-300 " />
                 <h1 className="text-xl">{item.name}</h1>
                 {item.name === "Paladin" && !hasChallengeToken && (
                   <>
@@ -129,7 +134,7 @@ const CharacterSelector = () => {
                     <FaLock className="z-50 text-white text-3xl" />
 
                     <span className="text-white text-lg">Locked</span>
-                    <p className="text-white z-50 px-2">Complete the challenge to unlock!</p>
+                    <p className="text-white z-50 px-2 text-center">Complete the challenge to unlock!</p>
                   </div>
                   </>
                 )}

@@ -1,5 +1,5 @@
 import { CapsuleCollider, euler, quat, RigidBody, vec3 } from '@react-three/rapier'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { PerspectiveCamera, useKeyboardControls } from '@react-three/drei';
 import { Vector3 } from "three";
 import { Controls } from '../../../FiberApp';
@@ -20,6 +20,7 @@ const RobotController = ({ isJumping, setIsJumping, movement }) => {
      const rb = useRef();
       
         
+
       
               const gravityVal = useSelector(state => state.settings.gravity)
               const lowGravity = useSelector(state => state.settings.lowGravity)
@@ -35,6 +36,7 @@ const RobotController = ({ isJumping, setIsJumping, movement }) => {
                       // DISABLE MOVEMENT WHEN FINISH MODAL IS UP
                       const raceGate = useSelector(state => state.gate.raceGate)
                       const contactGate = useSelector(state => state.gate.contactGate)
+
                   
                        
                                 const camera = useRef();
@@ -55,6 +57,9 @@ const RobotController = ({ isJumping, setIsJumping, movement }) => {
                                   }
                                   cameraTarget?.current?.lerp(vec3(rb.current.translation()), 0.5);
                                   camera.current.lookAt(cameraTarget.current);
+
+                                  
+                                  
                                   
                                   const curVel = rb.current.linvel();
                                   vel.x = 0;
@@ -73,11 +78,11 @@ const RobotController = ({ isJumping, setIsJumping, movement }) => {
                                       let isAttacking = false
     
                                       if(movement.right){
-                                        rotVel.y -= ROTATION_SPEED * 0.6;
+                                        rotVel.y -= ROTATION_SPEED * 0.675;
                                       }
     
                                       if (movement.left) {
-                                        rotVel.y += ROTATION_SPEED * 0.6;
+                                        rotVel.y += ROTATION_SPEED * 0.675;
                                       }
                           
                           
@@ -180,6 +185,14 @@ const RobotController = ({ isJumping, setIsJumping, movement }) => {
                                         x: 0,
                                         y: 2,
                                         z: -1,
+                                      });
+                                    }
+
+                                    const leaveContact = () => {
+                                      rb.current.setTranslation({
+                                        x: 34,
+                                        y: 2,
+                                        z: 0,
                                       });
                                     }
                   
@@ -327,6 +340,13 @@ const RobotController = ({ isJumping, setIsJumping, movement }) => {
                                                          }, 200);
                                                        }
                                                        if (other.rigidBodyObject.name === "spike") {
+                                                         inTheAir.current = false;
+                                                         punched.current = true;
+                                                         setTimeout(() => {
+                                                           punched.current = false;
+                                                         }, 200);
+                                                       }
+                                                       if (other.rigidBodyObject.name === "ball") {
                                                          inTheAir.current = false;
                                                          punched.current = true;
                                                          setTimeout(() => {

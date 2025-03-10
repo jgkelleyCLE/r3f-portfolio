@@ -2,9 +2,13 @@ import PageSpinner from '@/Components/PageSpinner'
 import ProjectCard from '@/Components/ProjectCard/ProjectCard'
 import { ContentContainer, FlexColumn, PageContainer, PageHeader } from '@/Components/UI'
 import { useGetAllProjectsQuery } from '@/redux/projectApi'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const Projects = () => {
+
+  useEffect(() => {
+    document.title = "Jack Kelley | Projects"
+  }, [])
 
   const { data: projects, isLoading, isError, isSuccess, error } = useGetAllProjectsQuery()
 

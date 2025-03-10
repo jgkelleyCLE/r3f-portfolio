@@ -4,17 +4,21 @@ import {
     SiReact, SiNextdotjs, SiRedux, SiMongodb, 
     SiExpress, SiNodedotjs, SiTailwindcss, SiFirebase,
     SiSocketdotio, SiTypescript, SiJavascript, SiCss3,
-    SiHtml5, SiVuedotjs, SiAngular, SiGithub,
-    SiVercel, SiNetlify, SiHeroku, SiPostgresql
+    SiHtml5,  SiGithub, SiNetlify, SiPostgresql, SiThreedotjs, SiShadcnui
   } from 'react-icons/si'
+import { useSelector } from 'react-redux'
+
 
 
 const TechCard = ({ item }) => {
 
+  const theme = useSelector(state => state.settings.theme)
+
     const techIcons = {
         // Frameworks
         'React': <SiReact className="text-blue-400" />,
-        'NextJS': <SiNextdotjs className="text-black" />,
+        'React Three Fiber': <SiThreedotjs className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
+        'NextJS': <SiNextdotjs className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
         
         
         // State Management
@@ -32,6 +36,7 @@ const TechCard = ({ item }) => {
         
         // Styling
         'TailwindCSS': <SiTailwindcss className="text-blue-400" />,
+        'Shadcn/ui': <SiShadcnui className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
         'CSS': <SiCss3 className="text-blue-600" />,
         'HTML': <SiHtml5 className="text-orange-500" />,
         
@@ -55,7 +60,7 @@ const TechCard = ({ item }) => {
     <FlexRow className="">
         <FlexColumn>
             <p className="text-3xl">{Icon}</p>
-            <p className="text-xs text-primary">{item}</p>
+            <p className="text-xs text-primary mt-[2px]">{item}</p>
 
         </FlexColumn>
     </FlexRow>
