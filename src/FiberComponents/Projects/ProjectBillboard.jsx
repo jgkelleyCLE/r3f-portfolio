@@ -5,7 +5,6 @@ import * as THREE from 'three'
 
 const ProjectBillboard = ({ item, position, rotation, finalPlatRef }) => {
 
-    console.log("ProjectBillboard -> item", item)
 
     const [occluders, setOccluders] = useState([])
   

@@ -25,8 +25,6 @@ const SettingsModal = () => {
     const lowGravity = useSelector(state => state.settings.lowGravity)
     const showControls = useSelector(state => state.settings.controls)
 
-    console.log("SHOW CONTROLS: ", showControls)
-
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger className="select-none">

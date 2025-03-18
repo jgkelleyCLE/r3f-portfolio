@@ -27,7 +27,10 @@ const Projects = () => {
       <ContentContainer>
       <PageHeader>Projects</PageHeader>
       <div className="flex flex-col items-center">
-        {content}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          {content}
+
+        </div>
 
       </div>
       </ContentContainer>

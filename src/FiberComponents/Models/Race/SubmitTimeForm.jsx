@@ -13,7 +13,6 @@ const SubmitTimeForm = ({ elapsedTime, setOpen }) => {
     const [username, setUsername] = useState("")
     const [isTouch, setIsTouch] = useState(false)
     const character = useSelector(state => state.settings.character)
-    console.log("CHARACTER: ", character)
 
     React.useEffect(() => {
         const mediaQuery = window.matchMedia("(pointer: coarse)");
@@ -54,7 +53,6 @@ const SubmitTimeForm = ({ elapsedTime, setOpen }) => {
 
         if(isError){
             toast.error("Error submitting time!")
-            // console.log("Error submitting time: ", error)
         }
     }, [isSuccess, isError])
 

@@ -39,7 +39,6 @@ const ChallengeRoute = () => {
     const onStartCollision = (event) => {
         // Check if collision is with the player
         if (event.colliderObject.name === "player" && !timerStarted) {
-          console.log("Race started!")
           // Start the timer only if it's not already running
           dispatch(startTimer(true))
         }

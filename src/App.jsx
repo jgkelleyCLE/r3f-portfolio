@@ -6,6 +6,7 @@ import BottomNav from "./Components/BottomNav/BottomNav"
 import TopNav from "./Components/TopNav/TopNav"
 import { Toaster } from 'sonner'
 import Contact from "./Pages/Contact"
+import ProjectDetails from "./Pages/ProjectDetails"
 
 function App() {
 
@@ -35,6 +36,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/project/:id" element={<ProjectDetails />} />
       </Routes>
     </>
   )

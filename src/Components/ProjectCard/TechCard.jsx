@@ -4,9 +4,12 @@ import {
     SiReact, SiNextdotjs, SiRedux, SiMongodb, 
     SiExpress, SiNodedotjs, SiTailwindcss, SiFirebase,
     SiSocketdotio, SiTypescript, SiJavascript, SiCss3,
-    SiHtml5,  SiGithub, SiNetlify, SiPostgresql, SiThreedotjs, SiShadcnui
+    SiHtml5,  SiGithub, SiNetlify, SiPostgresql, SiThreedotjs, SiShadcnui, SiSvelte, SiReactquery,
+    SiMaplibre,
+    SiSanity
   } from 'react-icons/si'
 import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 
 
 
@@ -19,11 +22,13 @@ const TechCard = ({ item }) => {
         'React': <SiReact className="text-blue-400" />,
         'React Three Fiber': <SiThreedotjs className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
         'NextJS': <SiNextdotjs className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
-        
+        'Svelte': <SiSvelte className="text-[#ff3e00]" />,
+
         
         // State Management
         'Redux': <SiRedux className="text-purple-600" />,
         'Redux Toolkit': <SiRedux className="text-purple-600" />,
+        'Tanstack Query': <SiReactquery className="text-[#FF4154]" />,
         
         // Backend & Databases
         'MongoDB': <SiMongodb className="text-green-600" />,
@@ -32,13 +37,14 @@ const TechCard = ({ item }) => {
         'NodeJS': <SiNodedotjs className="text-green-500" />,
         'Firebase': <SiFirebase className="text-yellow-500" />,
         'Socket.io': <SiSocketdotio className="text-black" />,
-
+        'Sanity.io': <SiSanity className="text-[#f24f1c]" />,
         
         // Styling
         'TailwindCSS': <SiTailwindcss className="text-blue-400" />,
         'Shadcn/ui': <SiShadcnui className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
         'CSS': <SiCss3 className="text-blue-600" />,
         'HTML': <SiHtml5 className="text-orange-500" />,
+        'MapLibre': <SiMaplibre className="text-[#FF1C60]" />,
         
         // Languages
         'TypeScript': <SiTypescript className="text-blue-600" />,
@@ -56,11 +62,13 @@ const TechCard = ({ item }) => {
       // Get the icon for this tech item, or use default if not found
   const Icon = techIcons[item] || techIcons.default
 
+  const pathname = useLocation().pathname
+
   return (
     <FlexRow className="">
         <FlexColumn>
-            <p className="text-3xl">{Icon}</p>
-            <p className="text-xs text-primary mt-[2px]">{item}</p>
+            <p className={`${pathname === "/" ? "text-5xl" : "text-3xl"}`}>{Icon}</p>
+            <p className={`${pathname === "/" ? "hidden" : null} text-xs text-primary mt-[2px]`}>{item}</p>
 
         </FlexColumn>
     </FlexRow>

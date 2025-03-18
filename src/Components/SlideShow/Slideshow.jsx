@@ -3,7 +3,6 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 const Slideshow = ({ photos }) => {
 
-  console.log("PHOTOS IN SLIDESHOW: ", photos)
 
     const [currentIndex, setCurrentIndex] = useState(0)
   
@@ -61,7 +60,7 @@ const Slideshow = ({ photos }) => {
    
 
     {/* INDICATORS */}
-    <div className="absolute bottom-1 left-0 z-30 right-0 flex justify-center gap-1">
+    <div className="absolute bottom-4 md:bottom-8 left-0 z-30 right-0 flex justify-center gap-1">
       {photos.map((_, index) => (
         <button 
           key={index} 
@@ -73,7 +72,7 @@ const Slideshow = ({ photos }) => {
     </div>
 
     {/* CAPTION --HIDDEN ON MOBILE */}
-    <div className="hidden md:block text-center italic -mt-2 mb-2 z-20 pb-4 left-0 right-0 text-primary p-2 text-sm">
+    <div className="hidden bottom-2 text-center italic -mt-2 mb-2 z-20 pb-4 left-0 right-0 text-primary p-2 text-sm">
           {photos[currentIndex].caption}
           
         </div>

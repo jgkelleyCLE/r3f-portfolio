@@ -3,15 +3,6 @@ import { useState } from 'react'
 
 export default function SelectedImageModal({ selected, show, setShow, setSelected }) {
   
-  console.log("SHOW IN MODAL: ", show)
-
-  // function Isopen() {
-  //   setOpen(true)
-  // }
-
-  // function close() {
-  //   setOpen(false)
-  // }
 
   return (
     <>

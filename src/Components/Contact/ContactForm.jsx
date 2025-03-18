@@ -26,7 +26,7 @@ const ContactForm = () => {
     const submitHandler = (e) => {
         e.preventDefault()
 
-        console.log("FORM DATA: ", formData)
+    
 
         if(formData.name.trim() === '' || formData.email.trim() === '' || formData.message.trim() === ''){
             toast.error("Please fill out all fields")

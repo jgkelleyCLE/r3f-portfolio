@@ -54,10 +54,10 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                                   if(raceGate || contactGate) {
                                     return
                                   }
-                                  cameraTarget?.current?.lerp(vec3(rb.current.translation()), 0.5);
-                                  camera.current.lookAt(cameraTarget.current);
+                                  cameraTarget?.current?.lerp(vec3(rb.current?.translation()), 0.5);
+                                  camera.current?.lookAt(cameraTarget.current);
                                   
-                                  const curVel = rb.current.linvel();
+                                  const curVel = rb.current?.linvel();
                                   vel.x = 0;
                                   vel.y = 0;
                                   vel.z = 0;
@@ -138,11 +138,11 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                                           setAnimation("Jump_Idle");
                                       }
                                 
-                                    rb.current.setAngvel(rotVel, true);
+                                    rb.current?.setAngvel(rotVel, true);
                                 
                                     // apply rotation to x and z to go in the right direction
                                 
-                                    const eulerRot = euler().setFromQuaternion(quat(rb.current.rotation()));
+                                    const eulerRot = euler().setFromQuaternion(quat(rb.current?.rotation()));
                                     vel.applyEuler(eulerRot);
                                 
                                     if ((get()[Controls.jump || movement.jump] || isJumping) && !inTheAir.current) {
@@ -151,19 +151,19 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                                       setIsJumping(false);
                                       setAnimation("Jump_Full_Long");
                                     } else {
-                                      vel.y = curVel.y;
+                                      vel.y = curVel?.y;
                                     }
                   
                                     
                   
                                     if (!punched.current) {
-                                      rb.current.setLinvel(vel, true);
+                                      rb.current?.setLinvel(vel, true);
                                     }
                                   });
       
        
                                   const respawn = () => {
-                                      rb.current.setTranslation({
+                                      rb.current?.setTranslation({
                                         x: 0,
                                         y: 5,
                                         z: -1,
@@ -177,7 +177,7 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                   
                                     const teleportHome = () => {
                                       // respawn()
-                                      rb.current.setTranslation({
+                                      rb.current?.setTranslation({
                                         x: 0,
                                         y: 2,
                                         z: -1,
@@ -187,7 +187,7 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                                     
                   
                                     const goToProjects = () => {
-                                      rb.current.setTranslation({
+                                      rb.current?.setTranslation({
                                         x: 5,
                                         y: 14,
                                         z: -76.5,
@@ -197,12 +197,12 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                                       const rotation = new THREE.Quaternion().setFromEuler(
                                         new THREE.Euler(0, THREE.MathUtils.degToRad(90), 0)
                                       );
-                                      rb.current.setRotation(rotation);
+                                      rb.current?.setRotation(rotation);
                   
                                     }
                   
                                     const goToAbout = () => {
-                                      rb.current.setTranslation({
+                                      rb.current?.setTranslation({
                                         x: 7,
                                         y: 5,
                                         z: 74,
@@ -212,7 +212,7 @@ const DruidController = ({ isJumping, setIsJumping, movement }) => {
                                       const rotation = new THREE.Quaternion().setFromEuler(
                                         new THREE.Euler(0, THREE.MathUtils.degToRad(90), 0)
                                       );
-                                      rb.current.setRotation(rotation);
+                                      rb.current?.setRotation(rotation);
                   
                                     }
 

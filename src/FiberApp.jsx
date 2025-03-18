@@ -1,12 +1,13 @@
 import { Canvas } from '@react-three/fiber'
-import React, { useMemo, useState, useEffect, useRef } from 'react'
+import React, { useMemo, useState, useEffect, useRef, Suspense } from 'react'
 import Experience from './FiberComponents/Experience'
 import { Physics, RigidBody } from '@react-three/rapier'
-import { Grid, KeyboardControls, OrbitControls, Stats } from '@react-three/drei'
+import { Grid, KeyboardControls, Loader, OrbitControls, Stats } from '@react-three/drei'
 import * as THREE from 'three'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import nipplejs from 'nipplejs';
 import { useSelector } from 'react-redux'
+import CanvasLoader from './FiberComponents/CanvasLoader'
 
 export const Controls = {
     forward: "forward",
@@ -170,20 +171,25 @@ const FiberApp = () => {
 
   return (
     <div className="h-screen bg-black select-none">
+      {/* <Loader /> */}
         <KeyboardControls map={map}>
         <Canvas 
             camera={{ position: [0, 6, 6], fov: 65 }}
             shadows
+            
         >
             
             {/* <Stats /> */}
 
+            
             <Physics 
                 // debug
-            >
+                >
+                  <Suspense fallback={<CanvasLoader />}>
                 <Experience isJumping={isJumping} setIsJumping={setIsJumping} movement={movement} />
+                </Suspense>
             </Physics>
-
+            
             
             <EffectComposer>
             <Bloom
@@ -191,21 +197,15 @@ const FiberApp = () => {
                         luminanceThreshold={1} // Increase threshold
                         luminanceSmoothing={0.7} // Adjust smoothing
                         height={300}
-                    />
+                        />
                 </EffectComposer>
 
 
         </Canvas>
         </KeyboardControls>
+        
     
-    {/* <div className="md:hidden">
-    
-    <button className="bg-white/50 select-none p-2 w-24 h-24 border-3 border-accent rounded-full cursor-pointer hover:bg-white text-gray-800 transition duration-300 font-bold" style={{ position: 'absolute', bottom: '80px', right: '30px' }} onPointerDown={() => setIsJumping(true)}>Jump</button>
-    <div className="bg-primary select-none" id="joystick-container" style={{ position: 'absolute', bottom: '80px', left: '80px', zIndex: 10 }}></div>
-    </div> */}
-     
-    
-    
+
         {isTouch ? (
         <>
           <button 

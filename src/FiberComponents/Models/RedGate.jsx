@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { RigidBody } from '@react-three/rapier'
-import { useThree } from '@react-three/fiber'
+import { useLoader, useThree } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 
 export function RedGate({ props, position, rotation, colliderType }) {
+  
   const { nodes, materials } = useGLTF('models/Items/gateLargeWide_teamRed.glb')
   const { scene, camera } = useThree()
   const glowRef = useRef()

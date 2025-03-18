@@ -18,6 +18,7 @@ import { useGetAllProjectsQuery, useLazyGetAllProjectsQuery } from '@/redux/proj
 import PageSpinner from '../PageSpinner'
 
 import ModalProjectCard from '../ProjectCard/ModalProjectCard'
+import MiniProjectCard from '../ProjectCard/MiniProjectCard'
 
 
 const ProjectsModal = () => {
@@ -49,7 +50,8 @@ const ProjectsModal = () => {
     }else if(isSuccess){
       content = projects?.map(item => (
         // <ProjectCard item={item} key={item._id} />
-        <ModalProjectCard item={item} key={item._id} />
+        // <ModalProjectCard item={item} key={item._id} />
+        <MiniProjectCard item={item} key={item._id} />
       ))
     }
 
@@ -58,26 +60,31 @@ const ProjectsModal = () => {
   return (
     <Dialog open={projectGate} onOpenChange={() => dispatch(setProjectGate(false))} className="min-w-[1200px] ">
       <DialogTrigger></DialogTrigger>
-      <DialogContent className="max-w-2xl h-[600px] md:h-auto overflow-y-scroll  border-primary [&>button]:text-accent">
-        <DialogHeader>
+      <DialogContent className="max-w-3xl md:h-auto h-[85%]  border-primary [&>button]:text-accent overflow-y-scroll scrollbar-themed">
+        <DialogHeader className="">
           <DialogTitle className="text-primary text-xl md:text-2xl">Projects</DialogTitle>
           <DialogDescription>
             
           </DialogDescription>
-          {/* <div className="flex flex-col items-center h-auto max-h-[600px] md:max-h-[800px] overflow-y-scroll">  */}
-          <div className="flex flex-col items-center h-auto max-h-[600px] md:max-h-[800px] overflow-y-scroll scrollbar-themed"> 
-            
-          {content}
+          
+          {/* CONTROLS THEMED SCROLLBAR AREA */}
+          <div className="flex flex-col items-center max-h-[600px] md:max-h-[800px] overflow-y-scroll scrollbar-themed"> 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+            {content}
+
+            </div>
             
           </div>
         </DialogHeader>
-        <DialogFooter className="bg-background">
-          <FlexRow className="w-full bg-background">
+        <DialogFooter className="hidden md:flex">
+        <DialogClose className="w-full"><Button className="bg-gray-400 p-2 hover:bg-gray-500 transition duration-300 rounded-md text-white hover font-bold cursor-pointer w-full text-lg">Close</Button></DialogClose>
+        <Button className="md:w-1/2 cursor-pointer hover:bg-accent/90 transition duration-300 bg-accent text-lg" onClick={()=> navigate('/projects')}>View All Projects</Button>
+        </DialogFooter>
+          {/* <FlexRow className="w-full bg-background">
             <DialogClose className="w-full"><Button className="bg-gray-400 p-2 hover:bg-gray-500 transition duration-300 rounded-md text-white hover font-bold cursor-pointer w-full text-lg">Close</Button></DialogClose>
             <Button className="w-1/2 cursor-pointer hover:bg-accent/90 transition duration-300 bg-accent text-lg" onClick={()=> navigate('/projects')}>View All Projects</Button>
 
-          </FlexRow>
-        </DialogFooter>
+          </FlexRow> */}
       </DialogContent>
     </Dialog>
   )

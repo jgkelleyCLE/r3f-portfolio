@@ -91,7 +91,9 @@ const Experience = ({ isJumping, setIsJumping, movement }) => {
         }
 
         {/* MAP */}
-        <MainLanding />
+        
+          <MainLanding />
+        
 
         {/* //RESPAWN DETECTOR */}
         <RigidBody type="fixed" colliders={false} sensor name="space" position-y={-8} >

@@ -1,42 +1,36 @@
-import React, { useState } from 'react'
-import { FlexRow } from '../UI'
-import { FaGithub } from "react-icons/fa";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import SelectedImageModal from '../Modals/SelectedImageModal';
-import TechCard from './TechCard';
-import Slideshow from '../SlideShow/Slideshow';
+import PageSpinner from '@/Components/PageSpinner'
+import TechCard from '@/Components/ProjectCard/TechCard'
+import Slideshow from '@/Components/SlideShow/Slideshow'
+import { ContentContainer, FlexColumn, FlexRow, PageContainer, PageHeader } from '@/Components/UI'
+import { useGetProjectByIdQuery } from '@/redux/projectApi'
+import React from 'react'
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
+import { useParams } from 'react-router-dom'
 
-const ProjectCard = ({ item }) => {
+const ProjectDetails = () => {
 
-    const [selected, setSelected] = useState(null)
-    const [show, setShow] = useState(false)
+    const { id } = useParams()
 
+    const { data: project, isLoading, isError, isSuccess, error } = useGetProjectByIdQuery(id)
 
-    const photos = item.images
-
-    const imageHandler = (image) => {
-
-        setSelected(image)
-        setShow(true)
-
-    }
 
   return (
-    <div key={item._id} className=" flex flex-col items-center p-2 rounded-md border border-primary w-full max-w-[1200px] my-1 ">
-              <div className="flex flex-col items-center w-full px-2 ">
-              
+    <PageContainer>
+        <ContentContainer>
+            {isLoading ? <FlexColumn><PageSpinner /> </FlexColumn> : null}
+            <PageHeader className="underline underline-offset-3 decoration-accent">{project?.title}</PageHeader>
+            <div className="flex flex-col items-center w-full px-2 ">
+                <Slideshow photos={project?.images} />
+            </div>
 
-              <Slideshow photos={photos} />
-              
-              </div>
-              <div className="flex flex-col items-start p-2">
-                <h1 className="font-bold text-primary underline underline-offset-3 decoration-accent text-xl md:text-2xl my-2">{item.title}</h1>
-                <p className=" text-md text-primary">{item.description}</p>
+            <div className="flex flex-col items-start p-2">
+                {/* <h1 className="font-bold text-primary underline underline-offset-3 decoration-accent text-xl md:text-2xl my-2">{project?.title}</h1> */}
+                <p className=" text-md text-primary">{project?.description}</p>
                 
-                <FlexRow className="my-2 flex-wrap w-full">
+                <FlexRow className=" flex-wrap w-full my-8">
 
                 <div className="flex flex-col items-center gap-1 w-full md:flex-row">
-                  <a href={item.link}
+                  <a href={project?.link}
                   target="_blank" 
                 rel="noopener noreferrer"
                   className="bg-accent hover:bg-accent/85 font-bold transition duration-300 text-white p-2 rounded-md flex items-center gap-2 w-full md:max-w-1/3 justify-center"
@@ -45,7 +39,7 @@ const ProjectCard = ({ item }) => {
                     View Project</a>
                 <div className="flex items-center gap-2 w-full">
                 
-                  <a href={item.githubFront}
+                  <a href={project?.githubFront}
                   target="_blank" 
                 rel="noopener noreferrer"
                   className="bg-black hover:bg-black/80 font-bold transition duration-300 text-white p-2 rounded-md flex items-center justify-center gap-2 w-full"
@@ -53,7 +47,7 @@ const ProjectCard = ({ item }) => {
                     <FaGithub className="text-2xl text-white" />
                     Frontend</a>
 
-                  <a href={item.githubBack}
+                  <a href={project?.githubBack}
                   target="_blank" 
                 rel="noopener noreferrer"
                   className="bg-black hover:bg-black/80 font-bold transition duration-300 text-white p-2 rounded-md flex items-center justify-center gap-2 w-full"
@@ -67,7 +61,7 @@ const ProjectCard = ({ item }) => {
                 <div className="flex justify-center w-full">
                 <FlexRow className="flex-wrap">
                 {
-                    item.techStack.map((item, index) => (
+                    project?.techStack.map((item, index) => (
                         <TechCard item={item} key={index} />
                     ))
                 }
@@ -76,13 +70,9 @@ const ProjectCard = ({ item }) => {
                 
 
               </div>
-
-              {/* {
-                open ? <SelectedImageModal selected={selected} setSelected={setSelected} show={show} setSHow={setShow} /> : null
-              } */}
-              
-            </div>
+        </ContentContainer>
+    </PageContainer>
   )
 }
 
-export default ProjectCard
+export default ProjectDetails

@@ -9,8 +9,6 @@ export function Mage(props) {
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions } = useAnimations(animations, group)  
-
-  console.log(actions)
   
 
   useEffect(() => {

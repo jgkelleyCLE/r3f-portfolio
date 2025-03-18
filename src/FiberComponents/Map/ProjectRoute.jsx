@@ -120,19 +120,21 @@ const ProjectRoute = () => {
         <FixedForestTileLarge position={[0, 9.85, -79.5]} rotation={[0, 0, 0]} />
         <FixedForestTileLarge position={[5.9, 9.85, -79.5]} rotation={[0, 0, 0]} />
 
-        <FixedForestTileLarge position={[-5.9, 9.85, -85.5]} rotation={[0, 0, 0]} />
+        {/* <FixedForestTileLarge position={[-5.9, 9.85, -85.5]} rotation={[0, 0, 0]} />
         <FixedForestTileLarge position={[0, 9.85, -85.5]} rotation={[0, 0, 0]} />
-        <FixedForestTileLarge position={[5.9, 9.85, -85.5]} rotation={[0, 0, 0]} />
+        <FixedForestTileLarge position={[5.9, 9.85, -85.5]} rotation={[0, 0, 0]} /> */}
 
         <YellowGate position={[8, 10.5, -76.85]} bloomPosition={[8, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} name="projects_home_tele" />
         <TeleportDetector name="teleport_projects_home" position={[8.35, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} />
 
-
+        <BlueGate position={[0, 9.5, -80.5]} />
+        <ProjectGateDetector position={[0, 9.5, -80.5]} />
+        
         <ProjectDetector />
 
         
             
-            <AllFiberProjects finalPlatRef={finalPlatRef} />
+            {/* <AllFiberProjects finalPlatRef={finalPlatRef} /> */}
           
           
          
@@ -158,8 +160,7 @@ const ProjectRoute = () => {
 
         
 
-        {/* <BlueGate position={[0, 9.5, -80.5]} />
-        <ProjectGateDetector position={[0, 9.5, -80.5]} /> */}
+        
 
 
         {/* FINAL PLATFORM */}
