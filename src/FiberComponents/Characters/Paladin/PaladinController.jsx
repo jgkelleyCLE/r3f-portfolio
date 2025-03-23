@@ -167,6 +167,14 @@ const PaladinController = ({ isJumping, setIsJumping, movement }) => {
                                           y: 5,
                                           z: -1,
                                         });
+
+                                        //FACE ABOUT ME ON RESPAWN
+                                        const rotation = new THREE.Quaternion().setFromEuler(
+                                        new THREE.Euler(0, THREE.MathUtils.degToRad(180), 0)
+                                        );
+                                        rb.current?.setRotation(rotation);
+                                                                            
+
                                       };
                                     
                                       const scene = useThree((state) => state.scene);

@@ -26,7 +26,7 @@ export function BlueGate({ props, position }) {
   return (
     <>
     <group {...props} dispose={null} position={position}>
-        <RigidBody type="fixed" name="gate" colliders={'trimesh'}>
+        <RigidBody type="fixed" name="gate" colliders={'cuboid'}>
       <mesh
       position={[0, 0.5, 0]}
         castShadow

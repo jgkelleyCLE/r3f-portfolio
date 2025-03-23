@@ -72,6 +72,11 @@ const ProjectsModal = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {content}
 
+            <div className="flex flex-col items-center gap-1 my-1 w-full md:hidden">
+            <Button className="md:w-1/2 cursor-pointer hover:bg-accent/90 transition duration-300 bg-accent text-lg w-full" onClick={()=> navigate('/projects')}>View All Projects</Button>
+            <DialogClose className="w-full"><Button className="bg-gray-400 p-2 hover:bg-gray-500 transition duration-300 rounded-md text-white hover font-bold cursor-pointer w-full text-lg">Close</Button></DialogClose>
+            </div>
+
             </div>
             
           </div>

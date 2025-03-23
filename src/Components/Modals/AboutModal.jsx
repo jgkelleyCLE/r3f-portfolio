@@ -72,12 +72,12 @@ const AboutModal = () => {
                  
                  
           <div>
-          <p className="text-start">I'm Jack, a self-taught web developer with a passion for building modern, interactive web experiences. While my background is not traditionally in tech, I've always been drawn to problem-solving and creating things from scratch. </p>
+          <p className="text-start">My name is Jack, a self-taught web developer with a passion for building modern, interactive web experiences. While my background is not traditionally in tech, I have always been drawn to leveraging technology to solve everyday challenges. </p>
           </div>
 
           <div className="hidden md:block">
           {/* <h1 className="font-bold text-xl my-2">My Journey</h1> */}
-          <p className="my-4">Transitioning into tech has been an exciting and fulfilling challenge. What started as tinkering with our family business' Wordpress website, has grown into building large full-stack applications, aimed at streamlining company inefficiencies and smoother daily operations.</p>
+          <p className="my-4">Transitioning into tech has been an exciting and fulfilling adventure. What started as tinkering with our family business' Wordpress website, has grown into building large full-stack applications, aimed at streamlining company inefficiencies and refining daily operations.</p>
           </div>
 
           

@@ -54,8 +54,10 @@ const ThemeToggle = () => {
     <div className="relative" ref={dropdownRef}>
       
       <button
+      name='theme-toggle'
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center  rounded-md transition-colors -mr-1"
+        aria-label='theme-toggle'
         aria-haspopup="true"
         aria-expanded={isOpen}
       >

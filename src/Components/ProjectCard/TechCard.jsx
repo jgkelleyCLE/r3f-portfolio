@@ -6,7 +6,8 @@ import {
     SiSocketdotio, SiTypescript, SiJavascript, SiCss3,
     SiHtml5,  SiGithub, SiNetlify, SiPostgresql, SiThreedotjs, SiShadcnui, SiSvelte, SiReactquery,
     SiMaplibre,
-    SiSanity
+    SiSanity,
+    SiVuedotjs
   } from 'react-icons/si'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
@@ -23,7 +24,7 @@ const TechCard = ({ item }) => {
         'React Three Fiber': <SiThreedotjs className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
         'NextJS': <SiNextdotjs className={`${theme === 'jack-midnight' ? 'text-white' : 'text-black'}`} />,
         'Svelte': <SiSvelte className="text-[#ff3e00]" />,
-
+        'Vue': <SiVuedotjs className="text-[#42b883]" />,
         
         // State Management
         'Redux': <SiRedux className="text-purple-600" />,
@@ -67,8 +68,8 @@ const TechCard = ({ item }) => {
   return (
     <FlexRow className="">
         <FlexColumn>
-            <p className={`${pathname === "/" ? "text-5xl" : "text-3xl"}`}>{Icon}</p>
-            <p className={`${pathname === "/" ? "hidden" : null} text-xs text-primary mt-[2px]`}>{item}</p>
+            <p className={`${pathname === "/" ? "text-4xl" : "text-3xl"}`}>{Icon}</p>
+            <p className={`${pathname === "/" ? "" : null} text-xs text-primary mt-[2px]`}>{item}</p>
 
         </FlexColumn>
     </FlexRow>

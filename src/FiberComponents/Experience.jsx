@@ -1,17 +1,25 @@
 import { Gltf, Grid, OrbitControls, PerspectiveCamera, useHelper } from '@react-three/drei'
-import React, { useRef } from 'react'
-import MageController from './Characters/Mage/MageController'
+import React, { useRef, useMemo, Suspense, lazy } from 'react'
 import { useSelector } from 'react-redux'
 import { CuboidCollider, RigidBody } from '@react-three/rapier'
 import { DirectionalLightHelper } from 'three'
 import * as THREE from 'three'
 import { Perf } from 'r3f-perf'
-import RobotController from './Characters/Robot/RobotController'
-import PaladinController from './Characters/Paladin/PaladinController'
-import MechController from './Characters/Mech/MechController'
-import OrcController from './Characters/Orc/OrcController'
+// import MageController from './Characters/Mage/MageController'
+// import RobotController from './Characters/Robot/RobotController'
+// import PaladinController from './Characters/Paladin/PaladinController'
+// import MechController from './Characters/Mech/MechController'
+// import OrcController from './Characters/Orc/OrcController'
+// import DruidController from './Characters/Druid/DruidController'
 import MainLanding from './Map/MainLanding'
-import DruidController from './Characters/Druid/DruidController'
+
+// Lazy load controllers to improve initial load time
+const MageController = lazy(() => import('./Characters/Mage/MageController'))
+const DruidController = lazy(() => import('./Characters/Druid/DruidController'))
+const RobotController = lazy(() => import('./Characters/Robot/RobotController'))
+const PaladinController = lazy(() => import('./Characters/Paladin/PaladinController'))
+const MechController = lazy(() => import('./Characters/Mech/MechController'))
+const OrcController = lazy(() => import('./Characters/Orc/OrcController'))
 
 const Experience = ({ isJumping, setIsJumping, movement }) => {
 
@@ -19,7 +27,18 @@ const Experience = ({ isJumping, setIsJumping, movement }) => {
 
   const shadowCameraRef = useRef()
 
+   // Use a map object for cleaner code and better performance
+   const characterComponents = useMemo(() => ({
+    "Mage": MageController,
+    "Druid": DruidController,
+    "Robot": RobotController,
+    "Paladin": PaladinController,
+    "Mech Warrior": MechController,
+    "Orc": OrcController
+  }), [])
 
+// Dynamically select the component
+const CharacterComponent = characterComponents[selectedCharacter] || characterComponents["Robot"]
 
   return (
     <>
@@ -51,7 +70,17 @@ const Experience = ({ isJumping, setIsJumping, movement }) => {
         
         {/* <Perf /> */}
 
-        {
+
+        <Suspense fallback={null}>
+        <CharacterComponent
+          isJumping={isJumping} 
+          setIsJumping={setIsJumping} 
+          movement={movement} 
+        />
+      </Suspense>
+        
+
+        {/* {
           selectedCharacter === "Mage" ? 
           <MageController 
           isJumping={isJumping} 
@@ -88,7 +117,7 @@ const Experience = ({ isJumping, setIsJumping, movement }) => {
             setIsJumping={setIsJumping} 
             movement={movement} 
           /> :  null
-        }
+        } */}
 
         {/* MAP */}
         

@@ -11,7 +11,7 @@ import { BlueGate } from '../Models/BlueGate'
 import ProjectGateDetector from '../Models/ProjectGateDetector'
 import { YellowGate } from '../Models/YellowGate'
 import TeleportDetector from '../Models/TeleportDetector'
-import AllFiberProjects from '../Projects/AllFiberProjects'
+
 import ProjectDetector from '../Models/ProjectDetector'
 
 
@@ -128,19 +128,9 @@ const ProjectRoute = () => {
         <TeleportDetector name="teleport_projects_home" position={[8.35, 12, -76.85]} rotation={[0, THREE.MathUtils.degToRad(90), 0]} />
 
         <BlueGate position={[0, 9.5, -80.5]} />
-        <ProjectGateDetector position={[0, 9.5, -80.5]} />
+        <ProjectGateDetector position={[0, 9.5, -80.1]} />
         
-        <ProjectDetector />
-
-        
-            
-            {/* <AllFiberProjects finalPlatRef={finalPlatRef} /> */}
-          
-          
-         
-              
-              
-
+        {/* <ProjectDetector /> */}
 
 
         </group>
@@ -156,11 +146,6 @@ const ProjectRoute = () => {
         >
           Home
         </Text3D>
-
-
-        
-
-        
 
 
         {/* FINAL PLATFORM */}
@@ -182,12 +167,6 @@ const ProjectRoute = () => {
             <Text3D font="/fonts/helvetiker_regular.typeface.json" fontSize={0.5} position={[5, 2.5, -17]} rotation={[0, THREE.MathUtils.degToRad(-65), 0]} color="black">
             {'<'}&mdash; Projects
             </Text3D>
-
-            
-
-            
-            
-
 
         <RigidBody type="kinematicPosition" name="desertTile" ref={ref}>
             <MovingForestTileLarge  position={[0, -1.65, -25]} rotation={[0, 0, 0]} />

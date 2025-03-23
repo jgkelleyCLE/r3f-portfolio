@@ -57,17 +57,17 @@ const About = () => {
 
       <div className="flex flex-col gap-6">
           <div>
-          <p>I'm Jack, a self-taught web developer with a passion for building modern, interactive web experiences. While my background isn't traditionally in tech, I've always been drawn to problem-solving and creating things from scratch. </p>
+          <p>My name is Jack, a self-taught web developer with a passion for building modern, interactive web experiences. While my background is not traditionally in tech, I have always been drawn to leveraging technology to solve everyday challenges. </p>
           </div>
 
           <div>
           <h1 className="font-bold text-xl mb-1">My Journey</h1>
-          <p>Transitioning into tech has been an exciting and fulfilling challenge. What started as tinkering with our family business' Wordpress website has evolved into building large full-stack applications, aimed at streamlining company inefficiencies and refining daily operations.</p>
+          <p>Transitioning into tech has been an exciting and fulfilling adventure. What started as tinkering with our family business' Wordpress website has evolved into building large full-stack applications, aimed at streamlining company inefficiencies and refining daily operations.</p>
           </div>
 
           <div>
           <h1 className="font-bold text-xl mb-1">What I'm Working On</h1>
-          <p>Right now, I'm focused on building dynamic web experiences, exploring 3D interactions with React Three Fiber, and improving my full-stack development skills.</p>
+          <p>Right now, I'm focused on building dynamic web experiences, exploring 3D interactions with React Three Fiber, learning additional frameworks, and improving my full-stack development skills.</p>
           </div>
 
           <h1 className="font-bold text-xl ">Preferred Technologies</h1>

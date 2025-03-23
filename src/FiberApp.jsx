@@ -1,8 +1,8 @@
 import { Canvas } from '@react-three/fiber'
 import React, { useMemo, useState, useEffect, useRef, Suspense } from 'react'
 import Experience from './FiberComponents/Experience'
-import { Physics, RigidBody } from '@react-three/rapier'
-import { Grid, KeyboardControls, Loader, OrbitControls, Stats } from '@react-three/drei'
+import { Physics } from '@react-three/rapier'
+import { KeyboardControls } from '@react-three/drei'
 import * as THREE from 'three'
 import { Bloom, EffectComposer } from '@react-three/postprocessing'
 import nipplejs from 'nipplejs';
@@ -20,9 +20,6 @@ export const Controls = {
     attack: "attack"
   }
 
-  const DEAD_ZONE = 0.035;
-const SPRINT_THRESHOLD = 0.9;
-const SMOOTHING = 0.1; // Lerp factor (0.1 for smooth, increase for snappier)
 
 const FiberApp = () => {
 
@@ -186,6 +183,7 @@ const FiberApp = () => {
                 // debug
                 >
                   <Suspense fallback={<CanvasLoader />}>
+                  
                 <Experience isJumping={isJumping} setIsJumping={setIsJumping} movement={movement} />
                 </Suspense>
             </Physics>
