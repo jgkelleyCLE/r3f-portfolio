@@ -31,23 +31,6 @@ export function Mage(props) {
     };
   }, [props.animation, actions]);
 
-  // useEffect(() => {
-  //   if (actions[props.animation] && props.pose) {
-  //     const action = actions[props.animation];
-      
-  //     // Reset the action
-  //     action.reset();
-      
-  //     // Set it to the end frame directly
-  //     action.time = action.getClip().duration;
-      
-  //     // Make sure it's paused and holds the final frame
-  //     action.clampWhenFinished = true;
-  //     action.play();
-  //     action.paused = true;
-  //   }
-  //   // Rest of your code...
-  // }, [props.animation, props.pose, actions]);
 
   return (
     <group ref={group} {...props} dispose={null} >

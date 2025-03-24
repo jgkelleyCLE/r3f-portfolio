@@ -33,42 +33,48 @@ export function Druid(props) {
       <group name="Scene">
         <group name="Rig">
           <skinnedMesh
+          castShadow
             name="Druid_ArmLeft"
             geometry={nodes.Druid_ArmLeft.geometry}
             material={materials.druid_texture}
             skeleton={nodes.Druid_ArmLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Druid_ArmRight"
             geometry={nodes.Druid_ArmRight.geometry}
             material={materials.druid_texture}
             skeleton={nodes.Druid_ArmRight.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Druid_Body"
             geometry={nodes.Druid_Body.geometry}
             material={materials.druid_texture}
             skeleton={nodes.Druid_Body.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Druid_Head"
             geometry={nodes.Druid_Head.geometry}
             material={materials.druid_texture}
             skeleton={nodes.Druid_Head.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Druid_LegLeft"
             geometry={nodes.Druid_LegLeft.geometry}
             material={materials.druid_texture}
             skeleton={nodes.Druid_LegLeft.skeleton}
           />
           <skinnedMesh
+          castShadow
             name="Druid_LegRight"
             geometry={nodes.Druid_LegRight.geometry}
             material={materials.druid_texture}
             skeleton={nodes.Druid_LegRight.skeleton}
           />
-          <primitive object={nodes.root} />
+          <primitive object={nodes.root} castShadow />
         </group>
       </group>
     </group>
