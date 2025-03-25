@@ -1,14 +1,12 @@
-import React from 'react'
-import MainLanding from './MainLanding'
+import React from 'react';
+import MainLanding from './MainLanding';
 
 const Map = () => {
   return (
     <>
-            
-        <MainLanding />
-
+      <MainLanding />
     </>
-  )
-}
+  );
+};
 
-export default Map
+export default Map;

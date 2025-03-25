@@ -1,5 +1,5 @@
 import { useProgress, Html } from '@react-three/drei';
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 
 function RotatingCube() {
@@ -15,31 +15,26 @@ function RotatingCube() {
   return (
     <mesh ref={ref}>
       <boxGeometry />
-      <meshNormalMaterial  />
+      <meshNormalMaterial />
     </mesh>
   );
 }
 
 const CanvasLoader = () => {
-
-    const { progress } = useProgress();
-
+  const { progress } = useProgress();
 
   return (
     <>
-    <directionalLight intensity={1.5} />
-    <ambientLight intensity={0.5} />
+      <directionalLight intensity={1.5} />
+      <ambientLight intensity={0.5} />
       <RotatingCube />
-    <Html center>
-      <div className="flex flex-col items-center justify-center h-screen">
-        
-        <h1 className="text-white text-3xl">Loading... </h1>
-      </div>
-    </Html>
+      <Html center>
+        <div className="flex flex-col items-center justify-center h-screen">
+          <h1 className="text-white text-3xl">Loading... </h1>
+        </div>
+      </Html>
     </>
-  )
-}
+  );
+};
 
-export default CanvasLoader
-
-
+export default CanvasLoader;

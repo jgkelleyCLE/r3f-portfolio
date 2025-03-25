@@ -1,9 +1,7 @@
-import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
-import { useState } from 'react'
+import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
+import { useState } from 'react';
 
 export default function SelectedImageModal({ selected, show, setShow, setSelected }) {
-  
-
   return (
     <>
       <Button
@@ -13,9 +11,12 @@ export default function SelectedImageModal({ selected, show, setShow, setSelecte
         {/* Open dialog */}
       </Button>
 
-      <Dialog open={show} as="div" className="relative z-50 focus:outline-none" 
-      // onClose={close}
-      onClose={()=> setShow(false)}
+      <Dialog
+        open={show}
+        as="div"
+        className="relative z-50 focus:outline-none"
+        // onClose={close}
+        onClose={() => setShow(false)}
       >
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
@@ -30,7 +31,7 @@ export default function SelectedImageModal({ selected, show, setShow, setSelecte
               <div className="mt-4">
                 <Button
                   className="inline-flex items-center gap-2 rounded-md bg-gray-700 py-1.5 px-3 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[hover]:bg-gray-600 data-[focus]:outline-1 data-[focus]:outline-white data-[open]:bg-gray-700"
-                  onClick={()=> setShow(false)}
+                  onClick={() => setShow(false)}
                 >
                   Close
                 </Button>
@@ -40,5 +41,5 @@ export default function SelectedImageModal({ selected, show, setShow, setSelecte
         </div>
       </Dialog>
     </>
-  )
+  );
 }
